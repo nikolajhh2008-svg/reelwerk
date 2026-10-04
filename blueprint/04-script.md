@@ -6,11 +6,28 @@ What separates the strong code-made videos from the forgettable ones is not the 
 
 Use the highest reasoning effort your agent offers for this step; ideas and hooks do not need it.
 
-Skills, in the order you need them: `anidoodle-storytelling` (the visual idea) · `remotion-director` (two directions, blind pick, critic loop) · `motion-grammar` and `animation-guide` (transitions, holds, character timing) · `procedural-sfx` (sound effects and mix) · `remotion-best-practices`, `remotion-markup`, `remotion-multimedia` (Remotion APIs). Hook, caption and idea skills are **not** loaded here.
+Skills, in the order you need them: `anidoodle-storytelling` (the visual idea) · `storytelling-hooks` (six levers, three hook layers), `short-form-video` and `viral-short-form` (retention: open loop, pattern interrupts, no flat middle, payoff), `visual-formats` (format library) · `remotion-director` (two directions, blind pick, critic loop) · `motion-grammar` and `animation-guide` (transitions, holds, character timing) · `procedural-sfx` (sound effects and mix) · `remotion-best-practices`, `remotion-markup`, `remotion-multimedia` (Remotion APIs). Hook-writing, caption and idea skills are **not** loaded here.
 
 ## 4.1 Premise, not topic
 
 Write one sentence: **"the character wants X – obstacle Y – it escalates Z – payoff."** Then the transformation in two words with an arrow (`empty → overflowing`, `chaos → one line`). A topic ("why sources matter") is not a premise. A video without a premise does not get built – send it back to 02.
+
+## 4.1b The shape of this video – never the same twice
+
+Fixed in every video: **a hook** (03-hooks.md), **ups and downs** (4.3), **understood on mute in two seconds**. Everything else is chosen fresh for each video, so no two videos are built the same way. Read `work/videos/shapes.jsonl` (one line per earlier video) and choose a shape that **differs from the previous video in at least three of these** and does not repeat the same length + format + story shape of any of the last five:
+
+| Variable | Choose from |
+|---|---|
+| Length | a short loop (under ~12 s) · a standard short (~20–35 s) · a longer story (~40–60 s) – whatever the idea needs, not habit |
+| Format | `visual-formats` and `viral-short-form` (`references/formats.md`): skit, POV, before/after, listicle, text message, split screen, reaction, letter … |
+| Story shape | one of the six basic emotional arcs – rise · fall · fall-rise · rise-fall · rise-fall-rise · fall-rise-fall ([Reagan et al. 2016, EPJ Data Science](https://arxiv.org/abs/1606.07772)); the tension curve in 4.3 follows it |
+| Levers | 2–3 of the six levers in `storytelling-hooks` (curiosity gap, emotional mirror, conflict, relatability, pattern + surprise, three acts) |
+| Pace | fast cuts · one continuous shot where one element transforms · calm with one hard break |
+| Ending | loop back to the first frame · twist · bookend (the hook's phrase returns) · open question · soft call to action |
+| Music | one track edited to the curve · a switch at the turn · silence and hits only, music arrives at the payoff |
+| Medium | 4.2 |
+
+Write the choice as one line into `work/videos/<id>/shape.json` and append it to `work/videos/shapes.jsonl`. This is a frame, not a recipe: pick what serves the idea, then build freely inside it.
 
 ## 4.2 Two directions
 
@@ -23,14 +40,17 @@ Start the `direction-lister` agent (from `remotion-director`) in a fresh context
 
 ## 4.3 Storyboard and four frames before the full build
 
-For each direction write `work/videos/<id>/<a|b>/storyboard.md`: 5–8 beats on a beat grid (time · what is on screen · what moves · how it hands over to the next beat · sound). Then build only **four stills**: hook, middle, peak, end – and put them on one sheet. The human picks a direction from the sheets – or, in an unattended run, the `blind-selector` agent does, given only the sheets. Only the winner is built in full.
+For each direction write `work/videos/<id>/<a|b>/storyboard.md`:
+
+- **The tension curve first** – the viewer's psychology over time, shaped by the story shape from 4.1b, never one flat level. A typical curve: hook spike (an open loop in the first seconds) → small payoffs or surprises that re-hook every few seconds → a build → the drop right before the payoff (pause, music out) → the payoff → a short release or a twist that makes people rewatch. Draw it as a line of numbers 1–10 per beat. A video that stays on one level is not finished; different video types get different curves (a joke escalates, a reveal holds back, a calm one breathes).
+- 5–8 beats on that curve and on a beat grid (time · tension 1–10 · what is on screen · what moves · how it hands over to the next beat · what the music does · sound). Then build only **four stills**: hook, middle, peak, end – and put them on one sheet. The human picks a direction from the sheets – or, in an unattended run, the `blind-selector` agent does, given only the sheets. Only the winner is built in full.
 
 ## 4.4 The build brief – short on purpose
 
 The builder gets only this, nothing else:
 
 1. format and length in the first line (1080×1920, 30 fps, 15–35 s),
-2. premise and the chosen direction,
+2. premise, the shape (4.1b) and the chosen direction,
 3. brand colours **with their role** and the fonts (`brand/theme.json`), pose list (`brand/assets.md`),
 4. **the ban list** `work/taste/banned.md` – named default looks this kit must not produce (start list below; add every new default you catch in review),
 5. the technical contract (4.5).
@@ -66,12 +86,14 @@ export default function Video() { /* … */ <Audio src={asset("work/videos/<id>/
 
 Every strong example cuts its picture to a real music track. So the music comes **before** the final timing:
 
+0. **The music follows the tension curve.** It is edited, not just laid under: sections rearranged, music out before the payoff, a switch when the mood flips, risers and hits from `procedural-sfx` on the build. Never one track at one level from start to end.
 1. **Music brief** `work/videos/<id>/music.json`: `caption` (genre, instruments, mood – instrumental, no named artists, name what to avoid such as generic synth pads), `bpm` (the storyboard's grid, e.g. 120), `durationSec` (the video's length), `structure` (timestamps from the storyboard: `[0:00 - 0:02] one hard hit, then silence` · `[0:10 - 0:12] everything drops out`).
 2. `node studio/music.mjs work/videos/<id> --variants 2` → `audio/music-1.wav`, `music-2.wav`. Default engine: **ACE-Step 1.5**, free and local (MIT; installed by `sh studio/setup-music.sh`) – tempo and length come out exactly as set, `structure` is ignored. Optional: `--engine lyria` (Google Lyria, paid API key) also follows `structure`.
 3. `.venv/bin/python studio/beats.py work/videos/<id>/audio/music-1.wav` → measured beats, bars, onsets. Pick the variant whose measured grid and loudness curve fit the storyboard; write the cue times into `timing.ts` **from the measured beats** – scene changes on beats, big moments on bars, the drop before the punchline where the loudness curve dips.
 4. **Sound effects** with `procedural-sfx`: few, one family, only on real events. `events.json` takes its times from the same `timing.ts` values. Whooshes start 4–6 frames before the cut; hits land on the frame or one frame later. Energy in 1–5 kHz (phone speakers have no bass), mono.
-5. **Mix** with the skill's `mix.py events.json -o audio/sfx-mix.wav --music audio/music-N.wav` (ducking, masking report, limiter at −1 dBTP), then `master.sh … audio/mix.wav` to −14 LUFS. Fix every `CHECK` line.
-6. Keep the skill's "not ear-tuned yet" table for the human (06-review.md).
+5. **The music carries the video** – it is not a quiet bed under the effects. Keep effects on the `sfx` bus (the `vo` bus ducks the music every time); if `mix.py` says the limiter takes more than ~3 dB, lower the gains instead. If `work/taste/music.md` exists, its styles beat your own taste.
+6. **Mix** with the skill's `mix.py events.json -o audio/sfx-mix.wav --music audio/music-N.wav` (ducking, masking report, limiter at −1 dBTP), then `master.sh … audio/mix.wav` to −14 LUFS. Fix every `CHECK` line.
+7. Keep the skill's "not ear-tuned yet" table for the human (06-review.md).
 
 If `brand/strategy.md` says "no embedded music", skip 1–3 and cut to a steady 120 BPM grid instead.
 

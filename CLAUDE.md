@@ -22,10 +22,11 @@ All skills in `.claude/skills/` are third-party open-source skills (origin and l
 | Hooks | `viral-hooks`, `hook-writing`, `hook-tactics`, `ig-reel` |
 | Hook audit | `artem-viral-hooks` |
 | Script | `viral-short-form`, `short-form-video`, `ig-reel` (`beats.py`), `ig-carousel`, `countdown-video` |
-| Visual idea, directions | `anidoodle-storytelling`, `remotion-director` |
+| Shape, tension, visual idea | `storytelling-hooks`, `short-form-video`, `viral-short-form`, `visual-formats`, `anidoodle-storytelling`, `remotion-director` |
 | Build + render | `motion-grammar`, `animation-guide`, `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `caption-animation` |
 | Music + sound effects | `studio/music.mjs` (ACE-Step local, or Lyria), `studio/beats.py`, `procedural-sfx` |
 | Review (critic) | `remotion-director` (`aesthetic-critic`), `motion-grammar` (`quality-bar`, `critic-prompts`, `gauntlet`), `docs/craft.md` |
+| Learn from results | `retention-audit` |
 | Caption, plan | `viral-captions-and-ctas`, `ig-caption`, `ig-plan`, `viral-tiktok-content`, `viral-instagram-reels`, `social` |
 | German-language text | `humanizer-de` |
 

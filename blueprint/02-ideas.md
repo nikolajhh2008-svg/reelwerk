@@ -4,7 +4,7 @@ Skills: `viral-short-form-ideas` (pillars, matrix, mining), `ig-viral` (outlier 
 
 ## 2.1 Load material first
 
-Every idea run reads: `brand/project.md`, `brand/strategy.md`, `brand/voice.md`, `brand/rules.md`, `brand/assets.md`, the newest file in `work/radar/` and `work/raw/`, everything in `work/taste/`, and `work/ideas/memory.jsonl` (every idea ever made, with status). **Without real material every model produces the same average ideas** – in one study, answers from different model families were 71–82 % similar ([Jiang et al., "Artificial Hivemind", NeurIPS 2025](https://arxiv.org/abs/2510.22954)). A second model or a higher temperature does not fix this; material and constraints do.
+Every idea run reads: `brand/project.md`, `brand/strategy.md`, `brand/voice.md`, `brand/rules.md`, `brand/assets.md`, the newest file in `work/radar/` and `work/raw/`, everything in `work/taste/`, and `work/ideas/memory.jsonl` (every idea ever made, with status). **Without real material every model produces the same average ideas** – in one study, answers from different model families were 71–82 % similar ([Jiang et al., "Artificial Hivemind", NeurIPS 2025](https://arxiv.org/abs/2510.22954)). A second model or a higher temperature does not fix this; real material does.
 
 ## 2.2 The formula
 
@@ -35,7 +35,7 @@ Take the **mechanism** from outliers, never their words, pictures or sound.
 
 1. **Trend card** per radar find (format of `trend-jacker`, fields of `tt-trend-mapper` and `meme-and-culture`): type (sound / format / meme / story pattern / culture moment) · source and date · **native structure** (beat, joke, expected cut) · origin and meaning · life stage (rising, peak, saturated) · rights (is the sound usable on a business account? can we rebuild the picture ourselves?).
 2. **Gate** (`trend-jacking`): safe? (its absolute no-gos plus `brand/rules.md`) · fit? (a bridge to the viewer's world, explainable in under 30 s). Fails → out. Sitting a trend out is a feature.
-3. **Transfer:** cross each card with 2–3 random cells of the grid (2.5) using the three bridges of `trend-jacker` (translate / against the grain / insider) and one bisociation from `creative-director-methods`. Every idea names **mechanism, not surface**: which structure is kept, what is replaced.
+3. **Transfer:** cross each card with 2–3 random cells of the grid (2.5b) using the three bridges of `trend-jacker` (translate / against the grain / insider) and one bisociation from `creative-director-methods`. Every idea names **mechanism, not surface**: which structure is kept, what is replaced.
 4. **Score** with `tt-trend-mapper` (0–8): long-lived format or rising moment = 2, at its peak = 1, saturated = 0. Below 6 → out.
 5. **Cringe check** on the shortlist: would someone send it to a friend without embarrassment? Is there already a meme about the trend being dead? "One week later it flopped – why?"
 
@@ -43,7 +43,11 @@ Two lanes: the **weekly lane** uses long-lived formats and story patterns; an op
 
 Humour on its own does not travel; in the strongest study it worked only together with timeliness or surprise ([Borah et al. 2020, "Improvised Marketing Interventions", Journal of Marketing 84(2)](https://eprints.whiterose.ac.uk/id/eprint/154774/)).
 
-## 2.5 Force variety
+## 2.5 Free round first, structure second
+
+Too many rules and examples make a model dig into one theme and stay stuck there. So the first round has **no grid, no buckets, no formula**: read the radar and the brand files once, then write 30 ideas as wild and different as possible – one line each. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
+
+## 2.5b Force variety
 
 1. **Grid:** draw 10 cells from format × bucket × emotion × hook type × family, so that every allowed format and every bucket appears.
 2. **Lenses:** attack each cell from several angles – the viewer late at night, the character, against the common advice, the comment someone would write, the human's own week.
@@ -61,7 +65,7 @@ Language models are better at making jokes unfunny than at inventing funny ones.
 ## 2.7 Filter
 
 1. **Duplicates:** an idea that only rewords another raw idea or one in `memory.jsonl` is out – same thought counts, not same words.
-2. **Hard yes/no:** all four formula parts present · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
+2. **Hard yes/no:** a stranger with no context understands on mute within two seconds what it is about (a number or term only insiders know is not a hook) · all four formula parts present · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
 3. **Hook probe:** write one quick hook sentence. If there is no clean hook, the idea is weak – out.
 
 ## 2.8 Rank in a separate pass

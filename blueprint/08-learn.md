@@ -12,3 +12,5 @@
 - **Test the judge:** take pairs of real videos ("A beat B") and check whether the ranking in 02-ideas.md and 03-hooks.md would have put them in the right order. If it is not clearly better than a coin flip, treat it as a pre-filter only and rely on the human more.
 - Re-run [01-strategy.md](01-strategy.md); re-run [00-analyze.md](00-analyze.md) if the product changed.
 - Check account health: TikTok "not eligible for For You" notices, Instagram account status.
+
+With a real retention graph (screenshot from the platform's analytics), use `retention-audit` to map each drop to a beat of the storyboard – and record which shape (`work/videos/shapes.jsonl`) the winners had.

@@ -62,5 +62,5 @@ Kallaway's public videos on hooks and content strategy (methods restated in our 
 
 - `blueprint/` – the workflow, including the project analysis in step 0 (nothing comparable existed)
 - `CLAUDE.md`, `brand/` templates, `docs/craft.md`
-- `studio/`: `Root.tsx` (finds every `work/videos/<id>/Video.tsx`), `brand.ts`, `brand-fonts.tsx`, `render.mjs` (render, sound measurement, contact sheet, dead-time check, version history), `music.mjs`, `music_ace.py`, `setup-music.sh` (call ACE-Step as in its `docs/en/INFERENCE.md`, or the Gemini API as in Google's docs), `beats.py` (librosa beat and onset detection to JSON), the README banner
+- `studio/`: `Root.tsx` (finds every `work/videos/<id>/Video.tsx`), `brand.ts`, `brand-fonts.tsx`, `render.mjs` (render, sound measurement, contact sheet, dead-time check, version history), `music.mjs`, `music_ace.py`, `setup-music.sh` (call ACE-Step as in its `docs/en/INFERENCE.md`, or the Gemini API as in Google's docs), `beatgrid.py` (librosa beat and onset detection to JSON), `sheet.mjs` (key frames of two directions on one sheet), `review.mjs` (the critic's material per round), the README banner
 - `examples/hello/Video.tsx`

@@ -4,10 +4,13 @@ Sound first (04-script.md, 4.6), then the picture:
 
 ```bash
 node studio/music.mjs work/videos/<id> --variants 2          # music bed (ACE-Step, local)
-.venv/bin/python studio/beats.py work/videos/<id>/audio/music-1.wav
+.venv/bin/python studio/beatgrid.py work/videos/<id>/audio/music-1.wav
 # timing.ts from the measured beats, events.json from timing.ts, then procedural-sfx mix.py + master.sh → audio/mix.wav
 node studio/render.mjs work/videos/<id>
+node studio/review.mjs work/videos/<id> r1                  # the critic's material for round 1 (06-review.md)
 ```
+
+Key frames of the two directions before the full build: `node studio/sheet.mjs work/videos/<id>` (04-script.md, 4.3). Type-check every video before rendering: `cd studio && npm run check`.
 
 This renders `work/videos/<id>/Video.tsx` (composition `v-<id>`), **measures** the sound (integrated loudness, true peak – it never changes your mix), writes a contact sheet (one frame every 0.5 s) and measures dead time. Output next to the script: `<id>.mp4`, `contact.jpg`, `check.json`. Every earlier render is kept in `renders/` (`<id>-v1.mp4`, `-v2` …) so the human can compare before and after.
 

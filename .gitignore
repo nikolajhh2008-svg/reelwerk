@@ -18,6 +18,9 @@ tools/
 music/*.mp3
 music/*.wav
 music/*.m4a
+# licensed sound-effect libraries that may not be redistributed (e.g. Mixkit): list committed, audio not
+sfx/mixkit/*.mp3
+sfx/mixkit/*.wav
 # python caches
 __pycache__/
 *.pyc

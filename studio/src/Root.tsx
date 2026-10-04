@@ -12,6 +12,8 @@ type VideoModule = { default: React.FC; meta: Meta }
 
 declare const require: { context: (dir: string, deep: boolean, re: RegExp) => { keys: () => string[]; (k: string): VideoModule } }
 const videos = require.context("../../work/videos", true, /^\.\/[^/]+\/Video\.tsx$/)
+// Key frames of a direction before the full build (blueprint 04, 4.3): work/videos/<id>/<a|b>/Keyframes.tsx → "k-<id>-<a|b>"
+const keyframes = require.context("../../work/videos", true, /^\.\/[^/]+\/[^/]+\/Keyframes\.tsx$/)
 
 const withFonts = (C: React.FC): React.FC => () => (
   <>
@@ -28,6 +30,15 @@ export const Root: React.FC = () => (
       const m = mod.meta
       return (
         <Composition key={id} id={`v-${id}`.replace(/[^a-zA-Z0-9-]/g, "-")} component={withFonts(mod.default)}
+          durationInFrames={m.durationInFrames} fps={m.fps ?? 30} width={m.width ?? 1080} height={m.height ?? 1920} />
+      )
+    })}
+    {keyframes.keys().map((k) => {
+      const [, id, dir] = k.split("/")
+      const mod = keyframes(k)
+      const m = mod.meta
+      return (
+        <Composition key={`${id}-${dir}`} id={`k-${id}-${dir}`.replace(/[^a-zA-Z0-9-]/g, "-")} component={withFonts(mod.default)}
           durationInFrames={m.durationInFrames} fps={m.fps ?? 30} width={m.width ?? 1080} height={m.height ?? 1920} />
       )
     })}

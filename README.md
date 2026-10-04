@@ -79,7 +79,7 @@ brand/            your project, filled in by the AI in step 0 (empty here)
 docs/craft.md     20 measured rules: rhythm, character animation, sound, transitions
 studio/           Remotion project: finds every work/videos/<id>/Video.tsx, brand helpers,
                   render.mjs (render → measure sound → contact sheet → dead-time check),
-                  music.mjs (music bed, free and local with ACE-Step), beats.py (measured beat grid)
+                  music.mjs (music bed, free and local with ACE-Step), beatgrid.py (measured beat grid)
 examples/         a small from-scratch video to copy
 sfx/              177 CC0 sound effect files (optional – effects are synthesised in code)
 setup.sh          installs the studio, the official Remotion skills and the Python audio tools

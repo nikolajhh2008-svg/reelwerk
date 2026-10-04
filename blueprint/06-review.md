@@ -13,7 +13,7 @@ Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/250
 
 ## 6.2 The critic – at least three rounds
 
-Start the `aesthetic-critic` agent once and keep the **same instance** for every round (protocol: `.claude/skills/remotion-director/skills/critic-loop/CRITIC-PROTOCOL.md`), with the checklists from `motion-grammar` (`quality-bar.md`, `critic-prompts.md`, `gauntlet.md`) and [`docs/craft.md`](../docs/craft.md). It gets: `contact.jpg` (2 frames/s), frame strips around every transition, the four key frames at full size and the same frames scaled to 360 px wide (phone test).
+Start the `aesthetic-critic` agent once and keep the **same instance** for every round (protocol: `.claude/skills/remotion-director/skills/critic-loop/CRITIC-PROTOCOL.md`), with the checklists from `motion-grammar` (`quality-bar.md`, `critic-prompts.md`, `gauntlet.md`) and [`docs/craft.md`](../docs/craft.md). It gets what `node studio/review.mjs work/videos/<id> <round>` puts into `review/r<round>/`: the contact sheet (2 frames/s), frame strips around every transition, the four key frames at full size and at 360 px wide (phone test), and `measurements.md` with numbers only (loudness, peaks, sync offsets – the critic may not read logs or code). Its protocol returns findings, severity and `CONVERGED`; ask for the scores and questions below in each round message.
 
 Each round:
 1. Score 1–10: hook frame · readable on a phone · motion · variety · composition · brand · sound-to-picture sync (from the mix report and `check.json`).

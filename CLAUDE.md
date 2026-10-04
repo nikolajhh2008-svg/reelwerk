@@ -24,7 +24,7 @@ All skills in `.claude/skills/` are third-party open-source skills (origin and l
 | Script | `viral-short-form`, `short-form-video`, `ig-reel` (`beats.py`), `ig-carousel`, `countdown-video` |
 | Shape, tension, visual idea | `storytelling-hooks`, `short-form-video`, `viral-short-form`, `visual-formats`, `anidoodle-storytelling`, `remotion-director` |
 | Build + render | `motion-grammar`, `animation-guide`, `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `caption-animation` |
-| Music + sound effects | `studio/music.mjs` (ACE-Step local, or Lyria), `studio/beats.py`, `procedural-sfx` |
+| Music + sound effects | `studio/music.mjs` (ACE-Step local, or Lyria), `studio/beatgrid.py`, `procedural-sfx` |
 | Review (critic) | `remotion-director` (`aesthetic-critic`), `motion-grammar` (`quality-bar`, `critic-prompts`, `gauntlet`), `docs/craft.md` |
 | Learn from results | `retention-audit` |
 | Caption, plan | `viral-captions-and-ctas`, `ig-caption`, `ig-plan`, `viral-tiktok-content`, `viral-instagram-reels`, `social` |
@@ -52,6 +52,8 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 - **Never post, upload or send anything.** Never open Remotion Studio in an unattended run; render with `node studio/render.mjs work/videos/<id>`.
 - `ig-reel`'s `hookscore.py` and `beats.py` are calibrated on English (word lists, no umlauts) – for other languages treat their scores as a weak signal only.
 - Craft rules: [`docs/craft.md`](docs/craft.md) – the critic checks every video against them (06-review.md); they are not pasted into the build brief.
+- **Where vendored skills disagree with this kit, the kit wins:** loudness −14 LUFS for social (motion-grammar's calmer −16/−19 targets are for ads); the critic is **one instance for all rounds** (remotion-director measured that a forgetful critic never converges – motion-grammar's "fresh critic each round" is overridden); sound effects: real recordings from a licensed library first, code-synthesised only where nothing fits (both kits agree synthesised hits often sound cheap); music: the human-made pool in `music/` first, generated music second.
+- Agents from `.claude/agents/` return their final message as the result – there is no SendMessage step.
 - `brand/rules.md` beats everything in this file.
 
 ## Files
@@ -60,10 +62,10 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 blueprint/   the workflow, step by step
 brand/       the project – filled by you in step 0, confirmed by the human
 docs/        craft rules
-studio/      Remotion project: brand helpers, render.mjs, music.mjs (ACE-Step / Lyria), beats.py – videos live in work/videos/<id>/Video.tsx
+studio/      Remotion project: brand helpers, render.mjs, review.mjs, sheet.mjs, music.mjs (ACE-Step / Lyria), beatgrid.py – videos live in work/videos/<id>/Video.tsx
 examples/    a small from-scratch video
 music/       your music pool: human-made tracks + licence list (audio not committed)
-sfx/         CC0 sound effect files (optional – effects are normally synthesised with procedural-sfx)
-.venv/       Python for beats.py and procedural-sfx (created by setup.sh)
+sfx/         real sound effects: Kenney CC0 (committed) and licensed libraries such as sfx/mixkit/ (list committed, audio local) – used before synthesised effects
+.venv/       Python for beatgrid.py and procedural-sfx (created by setup.sh)
 work/        ideas, scripts, renders, taste, results (not committed)
 ```

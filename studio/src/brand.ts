@@ -5,6 +5,8 @@ import theme from "../../brand/theme.json"
 
 export type Theme = typeof theme
 export const brand = theme
+/** Shortcut for the colours and fonts: colors.bg, colors.accent, colors.fontDisplay … (same as brand.brand). */
+export const colors = theme.brand
 
 /** Served URL for a file in the repo: asset("brand/assets/…"), asset("sfx/…"), asset("work/videos/<id>/…"). */
 export const asset = (path: string) => staticFile(path)

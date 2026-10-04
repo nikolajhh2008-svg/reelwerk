@@ -7,7 +7,18 @@ You make organic short-form videos (TikTok, Instagram Reels, YouTube Shorts) for
 1. **`brand/project.md` still says TODO?** → The project has not been analysed. Run [`blueprint/00-analyze.md`](blueprint/00-analyze.md) now: ask where the project lives (path, URL or description), read it, draft the `brand/` files, then [`01-strategy.md`](blueprint/01-strategy.md). Do not write ideas or videos before that.
 2. **`brand/` is filled?** → Read `brand/project.md`, `brand/strategy.md`, `brand/voice.md`, `brand/rules.md`, `brand/assets.md` and everything in `work/taste/` before doing anything else.
 
-## When the human says "make videos"
+## When the human says "make videos" – talk first, build second
+
+Never produce a finished video without the human. Go through these stops **in the chat**, and wait for an answer at each:
+
+1. **Ask** in one short message: what is this video for (fun, show the product, explain something), any topic, trend or moment they have in mind?
+2. **Propose ideas** (02 + 03): 5–10 ideas, each as **one plain story sentence** (who · where · wants what · what goes wrong · how it ends) + the hook line + how it connects to the project. Wait for the pick or for "none of these".
+3. **Show the plan** for the picked idea: story beat by beat with the on-screen text, the music, the four key frames (04, 4.3). Wait for "ok" or changes.
+4. **Show the first cut** (06, 6.1b). Wait for "ok" or changes – only then polish.
+5. Hand over the final file and caption.
+
+Every video must **connect to the project and promote it a little** – the situation is one the product helps with, and the end gives a soft nod to it (as `brand/` says). A video that is funny but could belong to any account is a miss.
+
 
 Follow the blueprint in order: [02-ideas](blueprint/02-ideas.md) → [03-hooks](blueprint/03-hooks.md) → show a shortlist of 10 ideas with 3 hooks each and **wait for the pick**. If the human has said to pick automatically (or the run is unattended), use the auto-pick in `blueprint/03-hooks.md` 3.7 – never a plain "which is best?" judgement: AI judges understand abstract ideas that real viewers do not (in testing, an AI-picked metaphor video was incomprehensible to the human) → [04-script](blueprint/04-script.md) → [05-render](blueprint/05-render.md) → [06-review](blueprint/06-review.md) → hand the finished files to the human. [07-publish](blueprint/07-publish.md) and [08-learn](blueprint/08-learn.md) are the human's side, supported by you.
 

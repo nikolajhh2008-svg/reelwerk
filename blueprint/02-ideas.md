@@ -69,7 +69,7 @@ Language models are better at making jokes unfunny than at inventing funny ones.
 ## 2.7 Filter
 
 1. **Duplicates:** an idea that only rewords another raw idea or one in `memory.jsonl` is out – same thought counts, not same words.
-2. **Hard yes/no:** a stranger with no context understands on mute within two seconds what it is about (a number or term only insiders know is not a hook) · the formula parts present (project truth only for show/inform) · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
+2. **Hard yes/no:** the idea plays in a **concrete, recognisable situation** (place + who + what happens), not as an abstract metaphor · a stranger with no context understands on mute within two seconds what it is about (a number or term only insiders know is not a hook) · the formula parts present (project truth only for show/inform) · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
 3. **Hook probe:** write one quick hook sentence. If there is no clean hook, the idea is weak – out.
 
 ## 2.8 Rank in a separate pass

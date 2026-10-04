@@ -8,6 +8,10 @@ Use the highest reasoning effort your agent offers for this step; ideas and hook
 
 Skills, in the order you need them: `anidoodle-storytelling` (the visual idea) · `storytelling-hooks` (six levers, three hook layers), `short-form-video` and `viral-short-form` (retention: open loop, pattern interrupts, no flat middle, payoff), `visual-formats` (format library) · `remotion-director` (two directions, blind pick, critic loop) · `motion-grammar` and `animation-guide` (transitions, holds, character timing) · `procedural-sfx` (sound effects and mix) · `remotion-best-practices`, `remotion-markup`, `remotion-multimedia` (Remotion APIs). Hook-writing, caption and idea skills are **not** loaded here.
 
+## 4.0 A real scene, not a concept
+
+Every video plays **somewhere a viewer recognises, with someone doing something**: a bedroom at 2 a.m., a classroom, a group chat, a kitchen table, a bus, a phone screen. The character acts in that scene. **Never an abstract void** where a word, a diagram or a metaphor is the whole world – a viewer who does not already know the concept sees nonsense (first full test run, human verdict: "Wie kann ein Wort der Hintergrund sein? … Das hat nichts mit irgendwas zu tun."). A visual trick (a morph, a zoom, a transformation) is allowed only *inside* such a scene, never instead of it.
+
 ## 4.1 Premise, not topic
 
 Write one sentence: **"the character wants X – obstacle Y – it escalates Z – payoff."** Then the transformation in two words with an arrow (`empty → overflowing`, `chaos → one line`). A topic ("why sources matter") is not a premise. A video without a premise does not get built – send it back to 02.

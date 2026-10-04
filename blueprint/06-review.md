@@ -6,7 +6,7 @@ Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/250
 
 | Check | Pass |
 |---|---|
-| Sound peak | ≤ −1 dBTP (target −3) |
+| Sound | no clipping (true peak ≤ −1 dBTP); loudness is reported, the mix is yours |
 | Dead time | no stretch ≥ 2 s without motion; ≥ 3 s is an error |
 | Length | as planned, usually 15–35 s |
 
@@ -22,6 +22,8 @@ Answer each with yes/no and the frame time:
 - Any placeholder text, cut-off text, overlapping elements, empty frames?
 - Brand: colours and fonts from `brand/theme.json` only; nothing from `brand/rules.md` broken.
 - Promise kept: does the end deliver what the hook promised?
+- **Is there a visual idea?** Would the video still make its point with the text removed? If the picture only illustrates the words, rebuild the beat.
+- **Boring check:** same layout three beats in a row, text appearing the same way every time, a character standing still beside text → change it.
 
 Fix and re-render at most twice; if it still fails, mark it "needs human" and say why.
 

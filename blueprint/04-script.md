@@ -1,59 +1,42 @@
-# 4 · Script – one JSON file per video
+# 4 · Build the video – from scratch
 
-Skills: `viral-short-form` and `short-form-video` (retention structure), `ig-reel` (`beats.py` checks the pacing), `ig-carousel` (carousels), `countdown-video` (series). The script format itself is **Onda's timeline payload** – read [`docs/onda/composing-with-onda.md`](../docs/onda/composing-with-onda.md), [`composing-placement.md`](../docs/onda/composing-placement.md) and [`composing-timeline.md`](../docs/onda/composing-timeline.md) before writing the first one. Every installed component has a `README.md` and a `schema.ts` in `studio/src/components/onda/<name>/` – the schema is the API.
+Every video is **its own piece of code**, written for this one idea: `work/videos/<id>/Video.tsx`. No component library, no recycled scenes, no screens copied from the product. What the brand gives you is all you start with: colours, fonts and the character poses in `brand/theme.json`, plus any assets the human listed in `brand/assets.md` for use. Everything else – layout, typography, objects, motion, transitions, sound – you design and build.
 
-## 4.1 The file
+Skills: `viral-short-form`, `short-form-video` (retention structure), the motion-design skills listed in `CLAUDE.md`, `remotion-best-practices` and `remotion-markup` (Remotion APIs). Craft values: [`docs/craft.md`](../docs/craft.md).
 
-`work/videos/<id>/props.json`:
+## 4.1 Before any code: the visual idea
 
-```json
-{
-  "brand":  { "...": "copied from brand/theme.json" },
-  "fonts":  [ { "family": "Inter", "file": "brand/fonts/Inter-Bold.woff2", "weight": "700" } ],
-  "scenes": [ { "for": 3, "layers": [ { "component": "WordStagger", "props": {} } ] },
-              { "for": 3, "transition": { "name": "push", "options": { "direction": "up" }, "for": 0.4 }, "layers": [] } ],
-  "composition": { "fps": 30, "width": 1080, "height": 1920,
-                   "tracks": [ { "id": "sfx", "entries": [ { "at": 0.5, "for": 0.5, "component": "AudioClip", "props": { "src": "sfx/ui/click2.ogg" } } ] } ] }
-}
+A video is boring when the picture only repeats the text. So first, in `work/videos/<id>/storyboard.md`:
+
+1. **The one visual idea.** What does the viewer *see* that makes the point without words? A metaphor, an object, a transformation: a 40,000-character tower that collapses, a vague sentence that sharpens word by word into a question, a clock that eats the days. Write three candidates, pick the strongest, say why.
+2. **Beats.** 5–8 beats, each 1.5–4 s: time · what is on screen · what moves and how · transition into the next beat · sound. Every beat has a visible event every 0.5–1.5 s.
+3. **The character's role.** What does the character *do* in each beat – react, point, carry, push, get surprised? Pick poses by their purpose in `brand/assets.md`. A character that only stands next to text is wasted.
+4. **Transitions as part of the idea.** Prefer transitions that carry meaning: an element survives the cut and becomes the next scene, a match cut on shape or position, a camera move through the scene. One accent transition per video at most.
+
+## 4.2 Code
+
+```tsx
+// work/videos/<id>/Video.tsx
+import { AbsoluteFill, Sequence, spring, interpolate, useCurrentFrame, useVideoConfig } from "remotion"
+import { brand, pose, asset } from "../../../studio/src/brand"
+export const meta = { durationInFrames: 600, fps: 30, width: 1080, height: 1920 }
+export default function Video() { /* … */ }
 ```
 
-- **`scenes`** – the picture, scene by scene. Each scene has a length (`for`), the components shown together (`layers`, times relative to the scene) and the **transition into it** (a key of `ondaTransitions`: `push`, `slide`, `morph`, `crossFade`, `depthPush`, `zoom`, `iris`, `wipe`, `blur`, `dipToColor`, `expandMorph`).
-- **`composition.tracks`** – things that run across scenes: sound effects (`AudioClip`), atmosphere (`Vignette`, `GrainOverlay`), a persistent character.
-- Paths that start with `brand/`, `sfx/` or `work/` are resolved automatically.
-- Components available: everything in `studio/src/registry.ts` – Onda's catalog plus `Character` (poses from `brand/assets/`).
+- Colours and fonts only from `brand` (`brand.brand.accent`, `brand.brand.fontDisplay` …). Character images via `pose("<key>")`, other files via `asset("brand/…" | "sfx/…" | "work/videos/<id>/…")`.
+- Remotion rules: every motion is a function of `useCurrentFrame()`; no CSS transitions or animations; no `Math.random()` (use `random(seed)` from remotion); images with `<Img>`; sound with `<Audio>` from `@remotion/media` inside `<Sequence>`.
+- You may split a video into several files in its folder. You may reuse ideas from earlier videos in `work/videos/` – but each video must have its own visual idea.
+- Example of the shape (not of the quality bar): [`examples/hello/Video.tsx`](../examples/hello/Video.tsx).
 
-## 4.2 Structure of a short
+## 4.3 Sound – designed with the picture
 
-| Part | Time | Job |
-|---|---|---|
-| Hook | 0–3 s | the picked hook package from 03-hooks.md, all three layers |
-| Lock-in | 3–10 s | confirm the promise, show the proof |
-| Body | beats of 1.5–3 s | **one sentence raises one question, the next answers it** |
-| Two dopamine moments | early + late | two "I didn't know that" moments keep people watching |
-| End | 2–3 s | payoff, soft call to action, loop back to the start if possible |
+- Sound follows the motion: what moves gets the sound that fits its weight and speed. Fewer sounds than events; silence is part of the design.
+- Allowed sources: `sfx/` (CC0, see `sfx/sfx-analysis.md`), sounds you synthesise yourself (e.g. with ffmpeg filters into `work/videos/<id>/audio/`), or no sound at all – music is usually added in the app when posting.
+- **Avoid cheap UI-click sprinkles** and never boost isolated clicks to full level. If the human chose "no embedded sound" in `brand/strategy.md`, leave the audio empty.
+- Mix it yourself: no clipping (true peak ≤ −1 dBTP), sound effects sit under where music will go. `render.mjs` measures, it does not fix.
 
-Length: 15–35 s for most videos. Carousels: 5–8 slides (`ig-carousel`).
+## 4.4 Craft rules the code must follow
 
-## 4.3 Craft rules the script must follow
-
-From [`docs/craft.md`](../docs/craft.md) (measured values with sources):
-
-- **A visible event every 0.5–1.5 s, never 2 s without motion** – without a voice only the picture carries the video. Give each scene a second layer that moves (character pose change, highlight, counter, camera move) if its text is static.
-- One real pause (≥ 1 s) right before the key line.
-- Text: title text ≥ 52 px and roughly a third from the top; reading speed ≤ 13 characters per second; nothing readable shorter than 0.8 s. Use Onda size roles (`hero`, `heading`, `subheading`) – never `body` or `caption` for anything the viewer must read.
-- Keep important content inside the safe zone: x 80–900, y 270–1250 on 1080×1920.
-- Character: pose changes as hops (swap at the apex), never cross-fades; one reaction held ≥ 0.5 s.
-- Transitions: `push`/`slide` between places, `morph`/`crossFade` for calm, `zoom` only as punctuation. No more than one transition type per video plus one accent.
-- Sound: fewer sounds than events, one hero sound per video, clicks and hits **on** the frame of the event (never earlier), whooshes 4–6 frames before a transition. Pick by effect from `sfx/sfx-analysis.md` (prefer warm, low-risk files).
-- **Never a text-only slideshow.** Every video has at least two layers beyond text (character, product visual, motion, sound).
-- Known component limits: `QuoteCard` has a fixed `maxWidth: 40vw` (built for landscape) – on 9:16 use `WordStagger` + `Underline` instead. There is no speech-bubble component; use `Callout` (its pointer is a thin line). `VideoClip` only crops centred – to show part of a recording, cut it first with ffmpeg into `work/videos/<id>/media/` (crop and trim only, content unchanged).
-- Every Onda component has defaults – always set the visible text props yourself, so no placeholder text from the library ends up in a video.
-
-## 4.4 Check the script before rendering
-
-- Every component name exists in the registry; every prop validates against its schema.
-- Every asset path exists.
-- `brand/rules.md` respected; no number without a source; the video keeps the hook's promise.
-- Sum of scene lengths matches the plan; no scene longer than ~3.5 s without a moving layer.
+From [`docs/craft.md`](../docs/craft.md): a visible event every 0.5–1.5 s, never 2 s without motion · one real pause before the key line · title text ≥ 52 px, roughly a third from the top, ≤ 13 characters per second · safe zone x 80–900, y 270–1250 · pose changes as hops, never cross-fades · springs by role (character ~8 % overshoot, text and camera none) · never a text-only slideshow.
 
 Then go to [05-render.md](05-render.md).

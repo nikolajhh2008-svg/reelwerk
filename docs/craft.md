@@ -12,7 +12,7 @@ Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, char
 
 ## Character
 
-6. **Never cross-fade poses: change pose as a hop, swap at the apex** (4 frames anticipation → swap → land with a spring). [practice: Richard Williams; implemented in `studio/src/components/character/`]
+6. **Never cross-fade poses: change pose as a hop, swap at the apex** (4 frames anticipation → swap → land with a spring). [practice: Richard Williams]
 7. **Springs by role:** character `{damping 15, stiffness 180, mass 0.8}` (~8 % overshoot), UI/words `{18, 300, 0.6}`, text and camera `{damping 200}` (no overshoot). Remotion's default spring overshoots ~16 % and reads cheap. [measured with Remotion's `spring()`]
 8. **Squash and stretch keeps volume (sx = 1 / sy), pivot at the feet; landing sy ≈ 0.88, flight ≈ 1.08; every readable action ≥ 5–6 frames.** [[Twelve principles of animation](https://en.wikipedia.org/wiki/Twelve_basic_principles_of_animation); practice]
 9. **Moving hold: breathe 2 s in / 3 s out at ±1.2 %; blink every 2–6 s (seeded), 3–4 frames, plus on every pose change** (blinking needs a closed-eyes pose in `brand/assets/`). [[Respiratory rate](https://en.wikipedia.org/wiki/Respiratory_rate), [Blinking](https://en.wikipedia.org/wiki/Blinking); [Animation Apprentice](https://animationapprentice.blogspot.com/2018/03/why-animators-need-to-blink.html)]
@@ -24,7 +24,7 @@ Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, char
 12. **Whooshes start 4–6 frames before the cut, peak on the first frame after; risers 30–60 frames, ending on the reveal.** [practice]
 13. **Fewer sounds than events, at most one hero sound per clip, one sound family, alternate variants, two sounds < 40 ms apart → drop one.** [[Material sound guidelines](https://m2.material.io/design/sound/sound-choreography.html)]
 14. **Phone-proof: transient energy at 1–5 kHz, high-pass around 90 Hz, mono or ≤ ±30 % pan.** Phone speakers produce almost nothing below ~250 Hz. [[Audiokinetic](https://blog.audiokinetic.com/loudness-and-frequency-response-on-popular-smart-phones/)]
-15. **Don't normalise the SFX file to −14 LUFS: peaks at −3 dBTP, levels in steps of 0/−4/−8/−12 dB; set the music level once per format in the app.** Neither TikTok nor Meta documents loudness normalisation. [judgement] `render.mjs` sets the peak automatically.
+15. **Don't normalise the SFX file to −14 LUFS: peaks at −3 dBTP, levels in steps of 0/−4/−8/−12 dB; set the music level once per format in the app.** Neither TikTok nor Meta documents loudness normalisation. [judgement] `render.mjs` measures loudness and true peak; it never changes the mix. Never boost isolated clicks – a sparse track of small sounds pushed to full level sounds cheap and harsh.
 16. **Only licence-clean sounds:** Kenney (CC0) and other CC0 sources. Of `@remotion/sfx`, only the files marked CC0; several popular meme sounds there have unclear origins. [[Kenney](https://kenney.nl/support), [Freesound FAQ](https://freesound.org/help/faq/)]
 
 ## Transitions

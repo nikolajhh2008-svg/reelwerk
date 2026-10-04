@@ -1,34 +1,25 @@
 #!/usr/bin/env node
-// Render one video from its script and check it.
-//   node render.mjs ../work/videos/<id>/props.json
-// Writes next to the script: <id>.mp4, contact.jpg (one frame every 0.5 s), check.json.
-// Steps: render with Remotion → set the sound peak to -3 dBTP (craft rule: SFX file
-// is not normalised to a loudness target) → contact sheet → measurements.
+// Render one video and measure it.
+//   node render.mjs ../work/videos/<id>          (folder with Video.tsx)
+// Writes into that folder: <id>.mp4, contact.jpg (one frame every 0.5 s), check.json.
+// Earlier renders are kept in renders/ (<id>-v1.mp4 …) for before/after.
+// The mix is the video's job: this script does NOT change the sound, it only measures it.
 import { execFileSync } from "node:child_process"
-import { existsSync, writeFileSync, renameSync, rmSync } from "node:fs"
+import { existsSync, writeFileSync, mkdirSync, copyFileSync, readdirSync, statSync } from "node:fs"
 import path from "node:path"
-import { mkdirSync, copyFileSync, readdirSync } from "node:fs"
 
-const propsPath = path.resolve(process.argv[2] ?? "")
-if (!existsSync(propsPath)) {
-  console.error("usage: node render.mjs <path/to/props.json>")
+let dir = path.resolve(process.argv[2] ?? "")
+if (existsSync(dir) && statSync(dir).isFile()) dir = path.dirname(dir)
+if (!existsSync(path.join(dir, "Video.tsx"))) {
+  console.error("usage: node render.mjs <work/videos/<id>> (folder containing Video.tsx)")
   process.exit(1)
 }
-const dir = path.dirname(propsPath)
 const id = path.basename(dir)
+const comp = `v-${id}`.replace(/[^a-zA-Z0-9-]/g, "-")
 const out = path.join(dir, `${id}.mp4`)
-const raw = path.join(dir, `.${id}-raw.mp4`)
-const TARGET_TP = -3 // dBTP peak for embedded sound effects
+const studio = path.dirname(new URL(import.meta.url).pathname)
 
-const run = (cmd, args, opts = {}) => execFileSync(cmd, args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], ...opts })
-const parse = (txt) => {
-  const pick = (re) => { const m = [...txt.matchAll(re)].pop(); return m ? Number(m[1]) : null }
-  return { lufs: pick(/I:\s+(-?[\d.]+) LUFS/g), truePeak: pick(/Peak:\s+(-?[\d.]+) dBFS/g) }
-}
-// ebur128 prints its summary to stderr; read it through a shell so the exit code does not matter
-const statsTxt = (file) => parse(execFileSync("sh", ["-c", `ffmpeg -hide_banner -nostats -i "${file}" -af ebur128=peak=true -f null - 2>&1 || true`], { encoding: "utf8" }))
-
-// 0) Keep the previous render, so every fix can be compared before/after (renders/<id>-v1.mp4, -v2 …)
+// 0) Keep the previous render for before/after
 if (existsSync(out)) {
   const hist = path.join(dir, "renders")
   mkdirSync(hist, { recursive: true })
@@ -38,38 +29,35 @@ if (existsSync(out)) {
 }
 
 // 1) Render
-console.log(`render ${id} …`)
-run("npx", ["remotion", "render", "Video", raw, `--props=${propsPath}`, "--log=error"], { cwd: path.dirname(new URL(import.meta.url).pathname), stdio: "inherit" })
+console.log(`render ${comp} …`)
+execFileSync("npx", ["remotion", "render", comp, out, "--log=error"], { cwd: studio, stdio: "inherit" })
 
-// 2) Sound peak to -3 dBTP (video stream copied untouched)
-const before = statsTxt(raw)
-if (before.truePeak !== null && Number.isFinite(before.truePeak) && before.truePeak > -70) {
-  const gain = (TARGET_TP - before.truePeak).toFixed(2)
-  execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", raw, "-c:v", "copy", "-af", `volume=${gain}dB`, "-c:a", "aac", "-b:a", "192k", out])
-  rmSync(raw)
-} else {
-  renameSync(raw, out) // silent video
-}
-const after = statsTxt(out)
+// 2) Measure sound (EBU R128 integrated loudness + true peak) – no changes
+const sh = (cmd) => execFileSync("sh", ["-c", `${cmd} 2>&1 || true`], { encoding: "utf8" })
+const r128 = sh(`ffmpeg -hide_banner -nostats -i "${out}" -af ebur128=peak=true -f null -`)
+const last = (re) => { const m = [...r128.matchAll(re)].pop(); return m ? Number(m[1]) : null }
+const hasAudio = /Audio:/.test(sh(`ffprobe -hide_banner "${out}"`))
+const lufs = hasAudio ? last(/I:\s+(-?[\d.]+) LUFS/g) : null
+const truePeak = hasAudio ? last(/Peak:\s+(-?[\d.]+) dBFS/g) : null
 
-// 3) Contact sheet: one frame every 0.5 s
+// 3) Contact sheet
 const duration = Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", out], { encoding: "utf8" }).trim())
-const tiles = Math.ceil(duration / 0.5)
 const cols = 6
-execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", out, "-vf", `fps=2,scale=270:-1,tile=${cols}x${Math.ceil(tiles / cols)}:padding=6:color=white`, "-frames:v", "1", path.join(dir, "contact.jpg")])
+execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", "-i", out, "-vf", `fps=2,scale=270:-1,tile=${cols}x${Math.ceil(Math.ceil(duration / 0.5) / cols)}:padding=6:color=white`, "-frames:v", "1", path.join(dir, "contact.jpg")])
 
-// 4) Dead time: stretches of ≥ 2 s where nothing visibly moves (craft rule: ≤ 2 s, error from 3 s)
-const freezeTxt = execFileSync("sh", ["-c", `ffmpeg -hide_banner -nostats -i "${out}" -vf freezedetect=n=0.002:d=2 -map 0:v -f null - 2>&1 || true`], { encoding: "utf8" })
-const starts = [...freezeTxt.matchAll(/freeze_start: ([\d.]+)/g)].map((m) => Number(m[1]))
-const durs = [...freezeTxt.matchAll(/freeze_duration: ([\d.]+)/g)].map((m) => Number(m[1]))
-const deadTime = starts.map((st, i) => ({ fromSec: Number(st.toFixed(2)), lengthSec: Number((durs[i] ?? duration - st).toFixed(2)) }))
+// 4) Dead time: ≥ 2 s without visible change
+const fz = sh(`ffmpeg -hide_banner -nostats -i "${out}" -vf freezedetect=n=0.002:d=2 -map 0:v -f null -`)
+const starts = [...fz.matchAll(/freeze_start: ([\d.]+)/g)].map((m) => Number(m[1]))
+const durs = [...fz.matchAll(/freeze_duration: ([\d.]+)/g)].map((m) => Number(m[1]))
+const deadTime = starts.map((st, i) => ({ fromSec: +st.toFixed(2), lengthSec: +(durs[i] ?? duration - st).toFixed(2) }))
 
-// 5) Measurements
 const check = {
   id,
   file: path.basename(out),
-  durationSec: Number(duration.toFixed(2)),
-  sound: { truePeakDbtp: after.truePeak, integratedLufs: after.lufs, target: `${TARGET_TP} dBTP peak`, ok: after.truePeak === null || after.truePeak <= -1 },
+  durationSec: +duration.toFixed(2),
+  sound: hasAudio
+    ? { integratedLufs: lufs, truePeakDbtp: truePeak, clipping: truePeak !== null && truePeak > -1, note: "measured only – the mix is decided in the video" }
+    : { none: true, note: "no audio track – music is added in the app" },
   deadTime: { stretches: deadTime, ok: deadTime.every((d) => d.lengthSec < 3), rule: "nothing static for 2 s or more; 3 s or more is an error" },
   contactSheet: "contact.jpg",
 }

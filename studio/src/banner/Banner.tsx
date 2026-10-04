@@ -1,12 +1,9 @@
-// README banner and social preview – rendered with the studio's own Onda components.
+// README banner and social preview – built from scratch, like every reelwerk video.
 import React from "react"
 import { AbsoluteFill, Sequence, interpolate, useCurrentFrame, useVideoConfig, Easing } from "remotion"
 import { loadFont as loadInter } from "@remotion/google-fonts/Inter"
 import { loadFont as loadMono } from "@remotion/google-fonts/JetBrainsMono"
-import { WordStagger, wordStaggerSchema } from "../components/onda/word-stagger/WordStagger"
-import { Highlight, highlightSchema } from "../components/onda/highlight/Highlight"
-import { CountUp, countUpSchema } from "../components/onda/count-up/CountUp"
-import { brandToCssVars } from "../lib/onda/theme"
+import { spring } from "remotion"
 
 const { fontFamily: INTER } = loadInter("normal", { weights: ["400", "500", "800"], subsets: ["latin"] })
 const { fontFamily: MONO } = loadMono("normal", { weights: ["400"], subsets: ["latin"] })
@@ -30,26 +27,53 @@ const Tick: React.FC<{ on: number; color: string; bg: string }> = ({ on, color, 
   </svg>
 )
 
-// The phone screen is a small 1080×1920 canvas scaled down, so the Onda components render exactly as in a real video.
+// The phone screen is a 1080×1920 canvas scaled down – built from scratch, like every reelwerk video.
+const Words: React.FC<{ text: string; size: number }> = ({ text, size }) => {
+  const f = useCurrentFrame()
+  const { fps } = useVideoConfig()
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 0.28em", fontFamily: INTER, fontWeight: 800, fontSize: size, color: "#F4F4F5", lineHeight: 1.08, textAlign: "center" }}>
+      {text.split(" ").map((w, i) => {
+        const p = spring({ frame: f - i * 4, fps, config: { damping: 18, stiffness: 300, mass: 0.6 } })
+        return <span key={i} style={{ opacity: p, transform: `translateY(${(1 - p) * 30}px)` }}>{w}</span>
+      })}
+    </div>
+  )
+}
+const Marker: React.FC<{ text: string; size: number }> = ({ text, size }) => {
+  const f = useCurrentFrame()
+  const w = interpolate(f, [4, 16], [0, 100], { ...clamp, easing: Easing.bezier(0.16, 1, 0.3, 1) })
+  return (
+    <span style={{ position: "relative", fontFamily: INTER, fontWeight: 800, fontSize: size, color: "#FFFFFF", padding: "0 18px" }}>
+      <span style={{ position: "absolute", left: 0, top: "8%", height: "88%", width: `${w}%`, background: "#4F7DF3", borderRadius: 12, zIndex: -1 }} />
+      {text}
+    </span>
+  )
+}
+const Counter: React.FC = () => {
+  const f = useCurrentFrame()
+  const { fps } = useVideoConfig()
+  const v = Math.round(70 * spring({ frame: f, fps, config: { damping: 200 }, durationInFrames: 30 }))
+  return <div style={{ fontFamily: INTER, fontWeight: 800, fontSize: 300, color: "#F4F4F5", fontVariantNumeric: "tabular-nums" }}>{v}%</div>
+}
 const PhoneVideo: React.FC = () => {
   const f = useCurrentFrame()
   const fade = aus(f, 190, 16)
-  const brand = { bg: "#0B0B0D", text: "#F4F4F5", dim: "#A1A1AA", accent: "#4F7DF3", accentSoft: "#7A9CF6", fontDisplay: INTER, fontBody: INTER }
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0B0B0D", opacity: fade, ...brandToCssVars(brand) }}>
+    <AbsoluteFill style={{ backgroundColor: "#0B0B0D", opacity: fade }}>
       <Sequence from={6} durationInFrames={70}>
         <AbsoluteFill style={{ alignItems: "center", paddingTop: 420, paddingLeft: 90, paddingRight: 90 }}>
-          <WordStagger {...wordStaggerSchema.parse({ text: "Everyone says you need more followers", justify: "center", fontWeight: 800, fontSize: 104, color: "#F4F4F5", fontFamily: INTER, lineHeight: 1.08 })} />
+          <Words text="Everyone says you need more followers" size={104} />
         </AbsoluteFill>
       </Sequence>
       <Sequence from={76} durationInFrames={60}>
         <AbsoluteFill style={{ alignItems: "center", paddingTop: 520 }}>
-          <Highlight {...highlightSchema.parse({ text: "You need better hooks", fontSize: 80, fontWeight: 800, fontFamily: INTER })} />
+          <Marker text="You need better hooks" size={80} />
         </AbsoluteFill>
       </Sequence>
       <Sequence from={136} durationInFrames={74}>
         <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}>
-          <CountUp {...countUpSchema.parse({ from: 0, to: 70, suffix: "%", fontSize: 300, fontFamily: INTER })} />
+          <Counter />
         </AbsoluteFill>
         <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 640 }}>
           <div style={{ fontFamily: INTER, color: "#A1A1AA", fontSize: 54, fontWeight: 500 }}>goal: still watching after 3 s</div>
@@ -76,7 +100,7 @@ export const Banner: React.FC<{ theme: Theme }> = ({ theme }) => {
       <div style={{ position: "absolute", left: 84, top: 0, bottom: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: tall ? 22 : 15 }}>
         <div style={{ fontSize: tall ? 104 : 92, fontWeight: 800, color: c.text, letterSpacing: -3.5, lineHeight: 1 }}>reelwerk<span style={{ color: c.accent }}>.</span></div>
         <div style={{ fontSize: tall ? 30 : 27, color: c.dim, letterSpacing: -0.3 }}>Organic short-form videos from code – made by your AI.</div>
-        <div style={{ fontFamily: MONO, fontSize: tall ? 17 : 15, color: c.dim }}>Claude Code · Remotion · Onda · TikTok · Reels · Shorts</div>
+        <div style={{ fontFamily: MONO, fontSize: tall ? 17 : 15, color: c.dim }}>Claude Code · Remotion · built from scratch · TikTok · Reels · Shorts</div>
         <div style={{ display: "flex", gap: 9, marginTop: tall ? 18 : 10 }}>
           {STEPS.map((name, i) => {
             const on = ein(f, 30 + i * 22, 10) * aus(f, 190, 16)

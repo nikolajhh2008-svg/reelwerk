@@ -19,14 +19,13 @@ Each folder contains its original licence file. Unchanged unless noted.
 | `humanizer-de` | [marmbiz/humanizer-de](https://github.com/marmbiz/humanizer-de) (Martin Moeller) | `a856fa4` | MIT © 2026 Martin Moeller | none |
 | `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `remotion-captions` | [remotion-dev/skills](https://github.com/remotion-dev/skills) | see `skills-lock.json` | no licence file (Remotion License) | **not included** – installed by `setup.sh` through the official installer |
 
-## Video components (`studio/`)
+## Video tooling (`studio/`)
 
 | What | Origin | Licence | How |
 |---|---|---|---|
-| 33 components and 11 transitions in `studio/src/components/onda/`, helpers in `studio/src/lib/onda/` | [Onda](https://github.com/degueba/onda) by Rodrigo Botelho | MIT | installed with the official CLI `npx ondajs add …`; one change: `count-up` got a `locale` prop (Onda fixes `en-US`), marked `// reelwerk:` |
-| `studio/src/lib/onda/{composition.ts, composition-renderer.tsx, theme.tsx, tokens.ts}` | Onda, commit `3c81405` | MIT | copied with a source line; two small changes for zod 4, marked `// reelwerk:`. `lib/onda/canvas.tsx` (installed by the CLI): placement box sizes to its content instead of half the canvas, marked `// reelwerk:` |
-| `docs/onda/*.md` | Onda docs, commit `3c81405` | MIT (`docs/onda/LICENSE`) | copied with a source line |
-| [Remotion](https://www.remotion.dev) | Remotion AG | Remotion License – free for individuals and companies with up to 3 people; larger teams need a company licence | npm dependency, not included |
+| [Remotion](https://www.remotion.dev) and its packages | Remotion AG | Remotion License – free for individuals and companies with up to 3 people | npm dependencies, not included |
+
+Videos are written from scratch per idea – no component library is included. (Earlier versions shipped [Onda](https://github.com/degueba/onda) components, MIT; removed in favour of building every video from scratch.)
 
 ## Sound effects (`sfx/`)
 
@@ -44,5 +43,5 @@ Kallaway's public videos on hooks and content strategy (methods restated in our 
 
 - `blueprint/` – the workflow, including the project analysis in step 0 (nothing comparable existed)
 - `CLAUDE.md`, `brand/` templates, `docs/craft.md`
-- glue in `studio/`: `Root.tsx`, `registry.ts`, `scenes.tsx` (transitions between scenes, following the pattern in Onda's docs), `brand-fonts.tsx`, `render.mjs` (render, sound peak, contact sheet, dead-time check)
-- `studio/src/components/character/` – a character from PNG poses, the one building block no library had (motion pattern after [stefanwittwer/remotion-animated](https://github.com/stefanwittwer/remotion-animated), MIT)
+- `studio/`: `Root.tsx` (finds every `work/videos/<id>/Video.tsx`), `brand.ts`, `brand-fonts.tsx`, `render.mjs` (render, sound measurement, contact sheet, dead-time check, version history), the README banner
+- `examples/hello/Video.tsx`

@@ -16,6 +16,8 @@ export const countUpSchema = z.object({
   duration: z.number().int().min(1).default(DURATION.slow),
   /** Fraction digits to render. */
   decimals: z.number().int().min(0).default(0),
+  /** Number format locale, e.g. `'de-AT'` for 1.500 (reelwerk addition; Onda fixes en-US). Fixed per script, so renders stay deterministic. */
+  locale: z.string().default('en-US'),
   /** Prepended to the number (e.g. `'$'`). */
   prefix: z.string().default(''),
   /** Appended to the number (e.g. `'%'`). */

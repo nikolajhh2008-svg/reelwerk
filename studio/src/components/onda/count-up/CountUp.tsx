@@ -15,7 +15,7 @@ export { countUpSchema, type CountUpProps };
  * <CountUp from={0} to={1247} prefix="$" suffix="+" />
  */
 export const CountUp: React.FC<CountUpProps> = ({
-  from, to, delay, duration, decimals, prefix, suffix, color, fontSize, size, fontFamily,
+  from, to, delay, duration, decimals, locale, prefix, suffix, color, fontSize, size, fontFamily,
   fontWeight = 600, letterSpacing = 'normal', lineHeight = 1.1, align = 'left', placement,
 }) => {
   const frame = useCurrentFrame();
@@ -42,7 +42,7 @@ export const CountUp: React.FC<CountUpProps> = ({
 
   // Locale-grouped (thousands separators) by default. en-US is fixed so the
   // render is deterministic across machines regardless of host locale.
-  const formatted = value.toLocaleString('en-US', {
+  const formatted = value.toLocaleString(locale, { // reelwerk: locale prop (was fixed 'en-US')
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   });

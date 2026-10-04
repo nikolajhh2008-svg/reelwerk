@@ -24,7 +24,7 @@ Each folder contains its original licence file. Unchanged unless noted.
 | What | Origin | Licence | How |
 |---|---|---|---|
 | 33 components and 11 transitions in `studio/src/components/onda/`, helpers in `studio/src/lib/onda/` | [Onda](https://github.com/degueba/onda) by Rodrigo Botelho | MIT | installed with the official CLI `npx ondajs add …`; one change: `count-up` got a `locale` prop (Onda fixes `en-US`), marked `// reelwerk:` |
-| `studio/src/lib/onda/{composition.ts, composition-renderer.tsx, theme.tsx, tokens.ts}` | Onda, commit `3c81405` | MIT | copied with a source line; two small changes for zod 4, marked `// reelwerk:` |
+| `studio/src/lib/onda/{composition.ts, composition-renderer.tsx, theme.tsx, tokens.ts}` | Onda, commit `3c81405` | MIT | copied with a source line; two small changes for zod 4, marked `// reelwerk:`. `lib/onda/canvas.tsx` (installed by the CLI): placement box sizes to its content instead of half the canvas, marked `// reelwerk:` |
 | `docs/onda/*.md` | Onda docs, commit `3c81405` | MIT (`docs/onda/LICENSE`) | copied with a source line |
 | [Remotion](https://www.remotion.dev) | Remotion AG | Remotion License – free for individuals and companies with up to 3 people; larger teams need a company licence | npm dependency, not included |
 

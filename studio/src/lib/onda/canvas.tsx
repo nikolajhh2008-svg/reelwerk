@@ -111,7 +111,10 @@ export const PlacementBox: React.FC<PlacementBoxProps> = ({ placement, children 
           left: `${x * 100}%`,
           top: `${y * 100}%`,
           transform: ANCHOR_TO_TRANSFORM[anchor],
-          maxWidth: '100%',
+          // reelwerk: was maxWidth '100%' – with left at 50 % the box only got half the canvas
+          // and centred text wrapped after a few words. Size to content, cap at canvas minus margins.
+          width: 'max-content',
+          maxWidth: 'calc(100% - 160px)',
           textAlign: ANCHOR_TO_TEXT_ALIGN[anchor],
         }}
       >

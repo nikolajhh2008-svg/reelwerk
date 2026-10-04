@@ -1,0 +1,15 @@
+# dependencies and outputs
+studio/node_modules/
+studio/out/
+studio/build/
+.agents/
+# Remotion skills have no licence file – installed by setup.sh from skills-lock.json
+.claude/skills/remotion-*/
+# your work stays local
+work/**
+!work/**/
+!work/**/.gitkeep
+# python caches
+__pycache__/
+*.pyc
+.DS_Store

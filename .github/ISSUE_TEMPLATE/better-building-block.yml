@@ -1,0 +1,16 @@
+name: Better building block
+description: A ready-made open-source skill, component or template that does a step better.
+labels: ["suggestion"]
+body:
+  - type: input
+    id: link
+    attributes: { label: Link, placeholder: "https://github.com/…" }
+    validations: { required: true }
+  - type: input
+    id: licence
+    attributes: { label: Licence, description: "Only MIT, Apache-2.0, BSD, ISC or CC0 can be included.", placeholder: MIT }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Which step does it improve, and how can you tell? }
+    validations: { required: true }

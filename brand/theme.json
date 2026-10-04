@@ -1,0 +1,19 @@
+{
+  "brand": {
+    "bg": "#0B0B0D",
+    "surface": "#18181B",
+    "surface2": "#1F1F23",
+    "border": "#2A2A30",
+    "borderLit": "#3A3A42",
+    "text": "#F4F4F5",
+    "dim": "#A1A1AA",
+    "faint": "#71717A",
+    "accent": "#4F7DF3",
+    "accentSoft": "#7A9CF6",
+    "fontDisplay": "\"Inter\", \"Helvetica Neue\", Arial, sans-serif",
+    "fontBody": "\"Inter\", \"Helvetica Neue\", Arial, sans-serif"
+  },
+  "fonts": [],
+  "character": { "name": null, "poses": {} },
+  "logo": null
+}

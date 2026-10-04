@@ -1,0 +1,16 @@
+name: Credit or licence problem
+description: Something is attributed wrongly, outdated, or a licence is not respected.
+labels: ["credits"]
+body:
+  - type: input
+    id: path
+    attributes: { label: Which file or folder?, placeholder: ".claude/skills/viral-hooks" }
+    validations: { required: true }
+  - type: textarea
+    id: problem
+    attributes: { label: What is wrong? }
+    validations: { required: true }
+  - type: input
+    id: proof
+    attributes: { label: Link to proof }
+    validations: { required: true }

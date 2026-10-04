@@ -1,0 +1,34 @@
+# reelwerk – auf Deutsch
+
+**Gib dieses Repo deiner KI. Sie liest dein Projekt und macht daraus organische Kurzvideos für TikTok, Reels und Shorts – gerendert aus Code.** Manche informieren, manche unterhalten, manche zeigen das Produkt. Den Mix bestimmt dein Projekt. Du wählst aus und postest selbst.
+
+## So startest du
+
+Du brauchst [Node.js](https://nodejs.org) ab Version 20, [ffmpeg](https://ffmpeg.org) und einen KI-Coding-Agenten, gebaut für [Claude Code](https://claude.com/claude-code).
+
+```bash
+git clone https://github.com/nikolajhh2008-svg/reelwerk.git
+cd reelwerk
+./setup.sh
+claude
+```
+
+Dann:
+
+> Analysiere mein Projekt: ~/code/meine-app
+
+Die KI liest Code, Doku und Website, findet, was sich ehrlich zeigen lässt, und entscheidet, **welche Video-Arten für genau dieses Projekt Sinn ergeben**: Eine Lern-App informiert eher, ein Spiel unterhält eher, ein Entwickler-Werkzeug zeigt eher. Danach stellt sie ein paar Fragen. Ab dann reicht:
+
+> mach Videos
+
+Du bekommst zehn Ideen mit je drei Hooks, wählst aus (`2b, 5a, 7c`), und die fertigen Videos liegen samt Kontaktbogen und Prüfbericht in `work/videos/`. **Gepostet wird nie automatisch.**
+
+## Was drin ist
+
+- **`blueprint/`:** der Ablauf in neun Schritten, von der Projekt-Analyse bis zum Lernen aus echten Zahlen
+- **`.claude/skills/`:** 22 übernommene Skills für Ideen, Hooks, Drehbücher und Captions – **kein einziger selbst geschrieben**
+- **`studio/`:** Remotion mit 33 Bausteinen und 11 Übergängen von [Onda](https://github.com/degueba/onda), eine Figur aus PNG-Posen und ein Render-Skript, das den Ton auf −3 dBTP pegelt, einen Kontaktbogen erstellt und Stillstand misst
+- **`docs/craft.md`:** 20 gemessene Handwerksregeln zu Takt, Figur, Sound und Übergängen
+- **`sfx/`:** 177 CC0-Geräusche mit Klanganalyse
+
+Herkunft und Lizenzen aller fremden Teile: [CREDITS.md](CREDITS.md).

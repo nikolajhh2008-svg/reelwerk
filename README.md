@@ -74,7 +74,7 @@ You get a shortlist of ten ideas with three hooks each, pick the ones you like (
 ```
 blueprint/        the workflow, step by step – what the AI follows
 brand/            your project, filled in by the AI in step 0 (empty here)
-.claude/skills/   33 third-party skills: ideas, trend transfer, hooks, visual ideas, motion, sound, critique
+.claude/skills/   35 third-party skills: ideas, trend transfer, hooks, visual ideas, motion, sound, critique
 .claude/agents/   direction lister, blind selector, pixel-only critic (from remotion-director)
 docs/craft.md     20 measured rules: rhythm, character animation, sound, transitions
 studio/           Remotion project: finds every work/videos/<id>/Video.tsx, brand helpers,

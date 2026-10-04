@@ -35,7 +35,7 @@ Scale down proportionally for 3–5 videos. The family shares from 00-analyze.md
 
 ## 1.4 Formats this project can do
 
-Mark which formats fit the project (every format is built from scratch):
+Mark which formats fit the project (every format is built from scratch). These are starting points – the full libraries are `visual-formats` (40+ formats) and `viral-short-form` (`references/formats.md`):
 
 | Format | Needs |
 |---|---|

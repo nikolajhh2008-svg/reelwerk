@@ -1,6 +1,6 @@
 # 2 · Ideas – many, different, then few
 
-Skills: `viral-short-form-ideas` (pillars, matrix, mining), `ig-viral` (outlier swipe file), `trend-jacking` and `meme-and-culture` (is a trend fit and safe?), `tt-trend-mapper` and `trend-jacker` (format transfer), `creative-director-methods` (bisociation), `verbalized-sampling`. This file says how to use them for this project.
+Skills: `viral-short-form-ideas` (pillars, matrix, mining), `ig-viral` (outlier swipe file), `trend-jacking` and `meme-and-culture` (is a trend fit and safe?), `tt-trend-mapper` and `trend-jacker` (format transfer), `creative-director-methods` (bisociation), `verbalized-sampling`, `statistical-distance` (push a first instinct from the cliché centre to the fresh edge), `joke-engineering` (why a joke is flat). This file says how to use them for this project.
 
 ## 2.1 Load material first
 
@@ -31,12 +31,12 @@ Every idea names these parts, or it is not an idea:
 
 Take the **mechanism** from outliers, never their words, pictures or sound.
 
-## 2.4 Trend transfer – borrow the structure, fill in our truth
+## 2.4 Trend transfer – borrow the structure, fill in the viewer's life
 
 1. **Trend card** per radar find (format of `trend-jacker`, fields of `tt-trend-mapper` and `meme-and-culture`): type (sound / format / meme / story pattern / culture moment) · source and date · **native structure** (beat, joke, expected cut) · origin and meaning · life stage (rising, peak, saturated) · rights (is the sound usable on a business account? can we rebuild the picture ourselves?).
 2. **Gate** (`trend-jacking`): safe? (its absolute no-gos plus `brand/rules.md`) · fit? (a bridge to the viewer's world, explainable in under 30 s). Fails → out. Sitting a trend out is a feature.
-3. **Transfer:** cross each card with 2–3 random cells of the grid (2.5b) using the three bridges of `trend-jacker` (translate / against the grain / insider) and one bisociation from `creative-director-methods`. Every idea names **mechanism, not surface**: which structure is kept, what is replaced.
-4. **Score** with `tt-trend-mapper` (0–8): long-lived format or rising moment = 2, at its peak = 1, saturated = 0. Below 6 → out.
+3. **Transfer:** cross each card with 2–3 different areas of the viewer's life (2.5) or random cells of the grid (2.5b) using the three bridges of `trend-jacker` (translate / against the grain / insider) and one bisociation from `creative-director-methods`. Every idea names **mechanism, not surface**: which structure is kept, what is replaced.
+4. **Score** with `tt-trend-mapper` (0–8) – where it says "niche", read **the viewer's world**, not the product's topic: long-lived format or rising moment = 2, at its peak = 1, saturated = 0. Below 6 → out.
 5. **Cringe check** on the shortlist: would someone send it to a friend without embarrassment? Is there already a meme about the trend being dead? "One week later it flopped – why?"
 
 Two lanes: the **weekly lane** uses long-lived formats and story patterns; an optional **fast lane** takes at most one rising moment per week and needs the human's go within 48 h – otherwise it expires.
@@ -45,11 +45,13 @@ Humour on its own does not travel; in the strongest study it worked only togethe
 
 ## 2.5 Free round first, structure second
 
-Too many rules and examples make a model dig into one theme and stay stuck there. So the first round has **no grid, no buckets, no formula**: read the radar and the brand files once, then write **at least 50 ideas** as wild and different as possible – one line each, spread over **at least 10 different areas of the viewer's whole life** (for a student e.g. friends, phone, family, sleep, food, gaming, music, sport, seasons, internet culture, school day, writing, the future …), **at most one in five on the product's own topic**. Think in absurd comparisons, characters, genres, games and formats from other worlds – not in tips. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
+Too many rules and examples make a model dig into one theme and stay stuck there. So the first round has **no grid, no buckets, no formula**: read the radar and the brand files once, then write **at least 50 ideas** as wild and different as possible – one line each, spread over **at least 10 different areas of the viewer's whole life** (for a student e.g. friends, phone, family, sleep, food, gaming, music, sport, seasons, internet culture, school day, writing, the future …), **at most one in five on the product's own topic**. Think in absurd comparisons, characters, genres, games and formats from other worlds – not in tips.
+
+**Two generators, not one:** run the free round as **two sub-agents in fresh contexts** (both get only `brand/` and the radar): one starts from the radar and culture, the other from the viewer's life areas and genres from other worlds. A single context drifts into one theme; two fresh ones do not see each other's drift. Merge their lists, then continue here. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
 
 ## 2.5b Force variety
 
-1. **Grid:** draw 10 cells from format × bucket × emotion × hook type × family, so that every allowed format and every bucket appears.
+1. **Grid:** draw 10 cells from format × area of life × emotion × hook type × family, so that many formats and life areas appear (buckets only if the project has them).
 2. **Lenses:** attack each cell from several angles – the viewer late at night, the character, against the common advice, the comment someone would write, the human's own week.
 3. **Verbalized sampling** (`verbalized-sampling`, [Zhang et al. 2025](https://arxiv.org/abs/2510.01171)): ask for 3 ideas *with their probability* of being suggested by a language model, then 3 more *each below 0.10*. Reported diversity gain: 1.6–2.1× at similar quality.
 4. **Ask for something different:** keep all earlier ideas and `memory.jsonl` in context and ask explicitly for an idea that is unlike all of them and goes beyond the usual categories.
@@ -60,7 +62,9 @@ That yields roughly 100 raw ideas per week. One line each: cell · lens · idea 
 
 ## 2.6 Humour is assembled, not invented
 
-Language models are better at making jokes unfunny than at inventing funny ones. A humour idea must name: a **real pain** (from dictation, comments, audience wording) + a **mechanism** (recognition, POV, escalation, broken expectation, personification, comparison, ranking, running gag) + the **character's role**. "Funny because funny" is out.
+Language models are better at making jokes unfunny than at inventing funny ones. A humour idea must name: a **real, specific moment from the viewer's life** (from dictation, comments, the radar or plain everyday life – never a pain invented to sell the product) + a **mechanism** (recognition, POV, escalation, broken expectation, personification, comparison, ranking, running gag) + the **character's role**. "Funny because funny" is out.
+
+**Refine the best 20 before ranking:** run each through `statistical-distance` (keep what it makes the viewer feel, push the expression from the most common version to a fresher one) and every joke through `joke-engineering` (too obvious, too obscure, over-explained?).
 
 ## 2.7 Filter
 
@@ -70,6 +74,6 @@ Language models are better at making jokes unfunny than at inventing funny ones.
 
 ## 2.8 Rank in a separate pass
 
-Re-read the survivors as a judge, not as the author. Same shape for all (hook line + 3 beats + 1 picture) so length does not win. Score with one decimal **plus a confidence** (0–100 %): understood muted in 2 s? · does the viewer recognise themselves? · contrast? · would they send it to a friend? · shows the project without feeling like an ad? Then compare only the **top 6 in pairs** (15 pairs), each pair as its **own small comparison** by a fresh judge, in **both orders** (judges have position bias – [Shi et al.](https://arxiv.org/abs/2406.07791)); disagreement = tie. A single judge asked to rank 190 pairs at once just copies its own scores.
+Re-read the survivors as a judge, not as the author. Same shape for all (hook line + 3 beats + 1 picture) so length does not win. Score with one decimal **plus a confidence** (0–100 %): understood muted in 2 s? · does the viewer recognise themselves? · contrast? · would they send it to a friend? · is the character specific and funny in it? · (show/inform only) does it show the project without feeling like an ad? Then compare only the **top 6 in pairs** (15 pairs), each pair as its **own small comparison** by a fresh judge, in **both orders** (judges have position bias – [Shi et al.](https://arxiv.org/abs/2406.07791)); disagreement = tie. A single judge asked to rank 190 pairs at once just copies its own scores.
 
-Output: `work/ideas/<week>-shortlist.md` – 10 ideas, at least one per bucket, formats spread as evenly as the allowed formats permit (at most 2 per format when 5 or more formats are possible; with fewer formats, at most 3) – then run [03-hooks.md](03-hooks.md) on each. Append every raw idea to `work/ideas/memory.jsonl` – one JSON object per line: `id, week, idea, signal, mechanism, truth, viewer, probability, status (raw|shortlist|picked|built|posted), score`.
+Output: `work/ideas/<week>-shortlist.md` – 10 ideas from **at least 6 different areas of life**, **at most 2 on the product's own topic** (follow the family shares in `brand/strategy.md`), formats spread as evenly as the allowed formats permit (at most 2 per format when 5 or more formats are possible; with fewer formats, at most 3) – then run [03-hooks.md](03-hooks.md) on each. Append every raw idea to `work/ideas/memory.jsonl` – one JSON object per line: `id, week, idea, signal, mechanism, truth, viewer, probability, status (raw|shortlist|picked|built|posted), score`.

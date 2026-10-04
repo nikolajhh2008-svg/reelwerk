@@ -17,7 +17,7 @@ All skills in `.claude/skills/` are third-party open-source skills (origin and l
 
 | Step | Skills |
 |---|---|
-| Ideas | `viral-short-form-ideas`, `ig-viral`, `verbalized-sampling` |
+| Ideas | `viral-short-form-ideas`, `ig-viral`, `verbalized-sampling`, `statistical-distance`, `joke-engineering` |
 | Trend transfer | `trend-jacking`, `meme-and-culture`, `tt-trend-mapper`, `trend-jacker`, `creative-director-methods` |
 | Hooks | `viral-hooks`, `hook-writing`, `hook-tactics`, `ig-reel` |
 | Hook audit | `artem-viral-hooks` |
@@ -52,6 +52,7 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 - **Never post, upload or send anything.** Never open Remotion Studio in an unattended run; render with `node studio/render.mjs work/videos/<id>`.
 - `ig-reel`'s `hookscore.py` and `beats.py` are calibrated on English (word lists, no umlauts) – for other languages treat their scores as a weak signal only.
 - Craft rules: [`docs/craft.md`](docs/craft.md) – the critic checks every video against them (06-review.md); they are not pasted into the build brief.
+- **"Niche" and "pillars" in the skills mean the viewer's world, not the product's topic.** Most entertainment videos are not about the product at all; the brand lives in the character (02-ideas.md, 2.2).
 - **Where vendored skills disagree with this kit, the kit wins:** loudness −14 LUFS for social (motion-grammar's calmer −16/−19 targets are for ads); the critic is **one instance for all rounds** (remotion-director measured that a forgetful critic never converges – motion-grammar's "fresh critic each round" is overridden); sound effects: real recordings from a licensed library first, code-synthesised only where nothing fits (both kits agree synthesised hits often sound cheap); music: the human-made pool in `music/` first, generated music second.
 - Agents from `.claude/agents/` return their final message as the result – there is no SendMessage step.
 - **Never end your turn while a sub-agent is still running** – wait for its result. Unattended runs (`claude -p`) stop background agents otherwise; set `CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=0` for such runs.

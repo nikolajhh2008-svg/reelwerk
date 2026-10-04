@@ -20,15 +20,15 @@ Order in the viewer's head: **stop** (picture, motion, contrast to the feed) →
 
 All three must say the same thing. "Confusion leads to churn."
 
-**Title text rules:** subject word (the term the audience uses) + exactly one pull element (pain reminder, desired outcome, or "something changed") · concrete where true · max ~7 words, max 2 lines, break where you would pause · no punctuation except quotes and parentheses · no "and/or/but/because" · stays on screen ≥ 3 s.
+**Title text rules:** subject word (the term the audience uses – for entertainment: the situation, e.g. the moment from the viewer's life, not the product) + exactly one pull element (pain reminder, desired outcome, "something changed" – or, for entertainment, the absurd turn) · concrete where true · max ~7 words, max 2 lines, break where you would pause · no punctuation except quotes and parentheses · no "and/or/but/because" · stays on screen ≥ 3 s.
 
 ## 3.3 The lock-in zone (seconds 3–10)
 
-Right after the hook the viewer checks two things: **is the hook's promise confirmed?** and **can I trust this sender?** The strongest trust lever is **proof** – the real product on screen, a source visible, a real comment. Every hook package names its proof.
+Right after the hook the viewer checks: **is the hook's promise confirmed?** For *inform* and *show* videos also **can I trust this sender?** – there the lever is **proof** (the real product as an illustration, a source visible, a real comment). For **entertainment** the lock-in is the **premise confirmed and escalating** – the situation gets worse, weirder or funnier within seconds; no proof, no product needed.
 
 ## 3.4 Make a batch
 
-Per idea: title lines across at least 6 different hook types (`ig-reel` formulas, Kallaway's six archetypes via `viral-hooks`), about 3 per type, plus one verbalized-sampling round (only candidates below 0.10). Then build **3 full packages** per idea from the best lines – not more. A full package is: title text · first line · picture (which asset, which motion) · sound (one SFX on the first frame or silence) · **the one question the viewer now has** · lock-in line · proof. If no clean hook comes out after two tries, send the idea back to 02-ideas.md.
+Per idea: title lines across at least 6 different hook types (`ig-reel` formulas, Kallaway's six archetypes via `viral-hooks`, the six levers and first-frame patterns of `storytelling-hooks`, the hook pattern library of `short-form-video` – for entertainment lead with visual first-frame hooks: mid-action, an odd object, a broken expectation), about 3 per type, plus one verbalized-sampling round (only candidates below 0.10). Then build **3 full packages** per idea from the best lines – not more. A full package is: title text · first line · picture (which asset, which motion) · sound (one SFX on the first frame or silence) · **the one question the viewer now has** · lock-in line · proof (inform/show) or escalation (entertainment). If no clean hook comes out after two tries, send the idea back to 02-ideas.md.
 
 ## 3.5 Audit, then rank
 

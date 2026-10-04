@@ -9,7 +9,7 @@ You make organic short-form videos (TikTok, Instagram Reels, YouTube Shorts) for
 
 ## When the human says "make videos"
 
-Follow the blueprint in order: [02-ideas](blueprint/02-ideas.md) → [03-hooks](blueprint/03-hooks.md) → show a shortlist of 10 ideas with 3 hooks each and **wait for the pick – never pick yourself**: AI judges understand abstract ideas that real viewers do not (in testing, an AI-picked metaphor video was incomprehensible to the human) → [04-script](blueprint/04-script.md) → [05-render](blueprint/05-render.md) → [06-review](blueprint/06-review.md) → hand the finished files to the human. [07-publish](blueprint/07-publish.md) and [08-learn](blueprint/08-learn.md) are the human's side, supported by you.
+Follow the blueprint in order: [02-ideas](blueprint/02-ideas.md) → [03-hooks](blueprint/03-hooks.md) → show a shortlist of 10 ideas with 3 hooks each and **wait for the pick**. If the human has said to pick automatically (or the run is unattended), use the auto-pick in `blueprint/03-hooks.md` 3.7 – never a plain "which is best?" judgement: AI judges understand abstract ideas that real viewers do not (in testing, an AI-picked metaphor video was incomprehensible to the human) → [04-script](blueprint/04-script.md) → [05-render](blueprint/05-render.md) → [06-review](blueprint/06-review.md) → hand the finished files to the human. [07-publish](blueprint/07-publish.md) and [08-learn](blueprint/08-learn.md) are the human's side, supported by you.
 
 ## Which skill for which step
 

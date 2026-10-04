@@ -41,3 +41,15 @@ Output: 3 packages from 3 different types per idea, into `work/ideas/<week>/<ide
 ## 3.6 The human picks – this is not optional
 
 LLM judges overrate AI humour badly: in the New Yorker caption contest a GPT-4 judge let AI captions win 54 % against the best human ones; a former New Yorker cartoon editor preferred them 1.6 % of the time ([Zhang et al. 2024](https://arxiv.org/abs/2406.10522)). Ranking is a proposal. The human answers with numbers and letters, e.g. `2b, 5a, 7c`, and every pick or rejection (with a short reason) goes to `work/taste/`. The next run reads it.
+
+## 3.7 Auto-pick – when the human does not pick
+
+The human will not pick every week. Then the pick is made in four steps that each catch a different error – never by asking one model "which is best?":
+
+1. **Many in, hard gates first.** At least 50 raw ideas (02), only the ones that pass the hard yes/no gates of 02 2.7 reach this point – above all the **one-sentence story** (who · where · wants what · what goes wrong · how it ends).
+2. **Blind retelling test** (catches "the AI understands it, viewers don't"): for each of the top 10, a **fresh sub-agent** gets only what a viewer would get – the title text and a plain list of what is visible and readable second by second, **no premise, no explanation, no brand files** – and writes in two sentences what happens and why it is funny or worth watching. A second fresh sub-agent compares that retelling with the intended story sentence: same story and same point → pass; anything else → out. An idea that needs its premise to be understood fails here.
+3. **Taste calibration** (catches "the AI's taste is not the human's"): every judge reads `work/taste/` first – every past human verdict with its reason ("liked …", "Müll, because …"). Judge each survivor against those verdicts: which past liked idea is it closest to, which past rejected one? An idea that resembles a rejected one is out.
+4. **Pairwise final** (catches position and length bias): the survivors in pairs, each pair its own small call by a fresh judge, both orders (02 2.8). The winner is built.
+
+Log the pick and the reasons in `work/ideas/<week>/pick.md`. Show the human the pick and the key-frame sheet (04-script.md 4.3) and the first cut (06 6.1b) whenever they are around – a two-second "no" there is cheaper than a polished wrong video. **Every human reaction, even a single word, goes into `work/taste/` with the idea it refers to** – that is what makes step 3 better each week. After posting, the real numbers (08-learn.md) outweigh all of it.
+

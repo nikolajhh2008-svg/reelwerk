@@ -25,7 +25,7 @@ Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, char
 13. **Fewer sounds than events, at most one hero sound per clip, one sound family, alternate variants, two sounds < 40 ms apart → drop one.** [[Material sound guidelines](https://m2.material.io/design/sound/sound-choreography.html)]
 14. **Phone-proof: transient energy at 1–5 kHz, high-pass around 90 Hz, mono or ≤ ±30 % pan.** Phone speakers produce almost nothing below ~250 Hz. [[Audiokinetic](https://blog.audiokinetic.com/loudness-and-frequency-response-on-popular-smart-phones/)]
 15. **Music bed plus effects, mixed and mastered as one track: −14 LUFS integrated, true peak ≤ −1 dBTP; the music ducks under hero sounds.** A sparse track of isolated clicks on silence sounds cheap and harsh – never boost single clicks. `procedural-sfx` mixes (`mix.py --music`, masking report, limiter) and masters (`master.sh`); `render.mjs` only measures. [practice; judgement]
-16. **Only licence-clean sound:** effects synthesised in code (`procedural-sfx`), music generated for the video (Google Lyria, `studio/music.mjs`), or CC0 files (Kenney in `sfx/`). Of `@remotion/sfx`, only the files marked CC0; several popular meme sounds there have unclear origins. [[Kenney](https://kenney.nl/support), [Gemini API terms](https://ai.google.dev/gemini-api/terms)]
+16. **Only licence-clean sound:** effects synthesised in code (`procedural-sfx`), music generated for the video (ACE-Step locally or Google Lyria, `studio/music.mjs`), or CC0 files (Kenney in `sfx/`). Of `@remotion/sfx`, only the files marked CC0; several popular meme sounds there have unclear origins. [[Kenney](https://kenney.nl/support), [Gemini API terms](https://ai.google.dev/gemini-api/terms)]
 
 ## Transitions
 

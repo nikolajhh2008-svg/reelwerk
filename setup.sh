@@ -24,5 +24,5 @@ else
 fi
 
 echo
-[ -n "$GEMINI_API_KEY" ] || echo "Music: set GEMINI_API_KEY (Google AI Studio, paid tier) for studio/music.mjs."
+echo "Music (free, local, ~7 GB models): sh studio/setup-music.sh"
 echo "Done. Start your AI agent in this folder (e.g. 'claude') and say: analyse my project."

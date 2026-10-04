@@ -66,11 +66,11 @@ export default function Video() { /* … */ <Audio src={asset("work/videos/<id>/
 
 Every strong example cuts its picture to a real music track. So the music comes **before** the final timing:
 
-1. **Music brief** `work/videos/<id>/music.md`: genre, instruments, BPM, mood, and timestamps from the storyboard (`[0:00 - 0:02] one hard hit, then silence` · `[0:10 - 0:12] everything drops out` · `[0:12 - 0:20] full`). Instrumental, no named artists. Name what to avoid (no generic synth pads).
-2. `node studio/music.mjs work/videos/<id> --variants 2` (Google Lyria via the Gemini API) → `audio/music-1.mp3`, `music-2.mp3`.
-3. `.venv/bin/python studio/beats.py work/videos/<id>/audio/music-1.mp3` → measured beats, bars, onsets. Pick the variant whose measured grid fits the storyboard; write the cue times into `timing.ts` **from the measured beats** – scene changes on beats, big moments on bars.
+1. **Music brief** `work/videos/<id>/music.json`: `caption` (genre, instruments, mood – instrumental, no named artists, name what to avoid such as generic synth pads), `bpm` (the storyboard's grid, e.g. 120), `durationSec` (the video's length), `structure` (timestamps from the storyboard: `[0:00 - 0:02] one hard hit, then silence` · `[0:10 - 0:12] everything drops out`).
+2. `node studio/music.mjs work/videos/<id> --variants 2` → `audio/music-1.wav`, `music-2.wav`. Default engine: **ACE-Step 1.5**, free and local (MIT; installed by `sh studio/setup-music.sh`) – tempo and length come out exactly as set, `structure` is ignored. Optional: `--engine lyria` (Google Lyria, paid API key) also follows `structure`.
+3. `.venv/bin/python studio/beats.py work/videos/<id>/audio/music-1.wav` → measured beats, bars, onsets. Pick the variant whose measured grid and loudness curve fit the storyboard; write the cue times into `timing.ts` **from the measured beats** – scene changes on beats, big moments on bars, the drop before the punchline where the loudness curve dips.
 4. **Sound effects** with `procedural-sfx`: few, one family, only on real events. `events.json` takes its times from the same `timing.ts` values. Whooshes start 4–6 frames before the cut; hits land on the frame or one frame later. Energy in 1–5 kHz (phone speakers have no bass), mono.
-5. **Mix** with the skill's `mix.py events.json -o audio/sfx-mix.wav --music audio/music-N.mp3` (ducking, masking report, limiter at −1 dBTP), then `master.sh … audio/mix.wav` to −14 LUFS. Fix every `CHECK` line.
+5. **Mix** with the skill's `mix.py events.json -o audio/sfx-mix.wav --music audio/music-N.wav` (ducking, masking report, limiter at −1 dBTP), then `master.sh … audio/mix.wav` to −14 LUFS. Fix every `CHECK` line.
 6. Keep the skill's "not ear-tuned yet" table for the human (06-review.md).
 
 If `brand/strategy.md` says "no embedded music", skip 1–3 and cut to a steady 120 BPM grid instead.

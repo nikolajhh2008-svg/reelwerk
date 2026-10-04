@@ -24,7 +24,7 @@ All skills in `.claude/skills/` are third-party open-source skills (origin and l
 | Script | `viral-short-form`, `short-form-video`, `ig-reel` (`beats.py`), `ig-carousel`, `countdown-video` |
 | Visual idea, directions | `anidoodle-storytelling`, `remotion-director` |
 | Build + render | `motion-grammar`, `animation-guide`, `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `caption-animation` |
-| Music + sound effects | `studio/music.mjs` (Lyria), `studio/beats.py`, `procedural-sfx` |
+| Music + sound effects | `studio/music.mjs` (ACE-Step local, or Lyria), `studio/beats.py`, `procedural-sfx` |
 | Review (critic) | `remotion-director` (`aesthetic-critic`), `motion-grammar` (`quality-bar`, `critic-prompts`, `gauntlet`), `docs/craft.md` |
 | Caption, plan | `viral-captions-and-ctas`, `ig-caption`, `ig-plan`, `viral-tiktok-content`, `viral-instagram-reels`, `social` |
 | German-language text | `humanizer-de` |
@@ -45,7 +45,7 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 - **No number without a source.** Many hook skills quote percentages without evidence; never put those into a video.
 - **Only the brand files are given** (colours, fonts, character, logo). Never take components, animations, screenshots or recordings from the project; show features as illustrations built from scratch, never as a fake real screen. No realistic AI people.
 - **Faceless and voiceless by default:** the "spoken hook" is the character's first speech bubble or the first line of text.
-- **Sound: a music bed generated for the video, effects synthesised in code** (04-script.md, 4.6). Picture is cut to the measured beats; no cheap click sprinkles, no boosted isolated clicks. Music needs `GEMINI_API_KEY` (or the macOS keychain item `gemini-api`); without it, ask the human – never invent a workaround.
+- **Sound: a music bed generated for the video, effects synthesised in code** (04-script.md, 4.6). Picture is cut to the measured beats; no cheap click sprinkles, no boosted isolated clicks. Music comes from ACE-Step, free and local (`sh studio/setup-music.sh`); Google Lyria is optional (`--engine lyria`, needs `GEMINI_API_KEY`). If no engine is installed, ask the human – never invent a workaround.
 - **Every video is built from scratch** (`blueprint/04-script.md`): premise, two directions, four key frames, then its own `Video.tsx`. No template library, no recycled scenes. Given are only the brand files. The build brief stays short; the ban list `work/taste/banned.md` is part of it.
 - **Never a text-only slideshow.** Every video has at least two layers beyond text.
 - **Never post, upload or send anything.** Never open Remotion Studio in an unattended run; render with `node studio/render.mjs work/videos/<id>`.
@@ -59,7 +59,7 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 blueprint/   the workflow, step by step
 brand/       the project – filled by you in step 0, confirmed by the human
 docs/        craft rules
-studio/      Remotion project: brand helpers, render.mjs, music.mjs (Lyria), beats.py – videos live in work/videos/<id>/Video.tsx
+studio/      Remotion project: brand helpers, render.mjs, music.mjs (ACE-Step / Lyria), beats.py – videos live in work/videos/<id>/Video.tsx
 examples/    a small from-scratch video
 sfx/         CC0 sound effect files (optional – effects are normally synthesised with procedural-sfx)
 .venv/       Python for beats.py and procedural-sfx (created by setup.sh)

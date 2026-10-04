@@ -12,6 +12,8 @@ work/**
 !work/**/.gitkeep
 # python
 .venv/
+# local music engine (studio/setup-music.sh)
+tools/
 # python caches
 __pycache__/
 *.pyc

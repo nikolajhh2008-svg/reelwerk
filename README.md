@@ -61,7 +61,7 @@ You get a shortlist of ten ideas with three hooks each, pick the ones you like (
 | 1 | [Strategy](blueprint/01-strategy.md) | one viewer, one goal, a bullseye of topics, a weekly mix – confirmed by you |
 | 2 | [Ideas](blueprint/02-ideas.md) | ~100 raw ideas from real signals – trends from anywhere in culture, transferred onto your topic – forced to differ, filtered, ranked in pairs |
 | 3 | [Hooks](blueprint/03-hooks.md) | a batch of hook packages per idea, audited for the four hook killers – **you pick** |
-| 4 | [Build](blueprint/04-script.md) | a premise, two directions, four key frames – then the video coded from scratch in Remotion, cut to a music bed generated for it, with sound effects synthesised in code |
+| 4 | [Build](blueprint/04-script.md) | a premise, two directions, four key frames – then the video coded from scratch in Remotion, cut to a music bed generated for it on your machine, with sound effects synthesised in code |
 | 5 | [Render](blueprint/05-render.md) | render, measure sound and dead time, contact sheet, keep every version |
 | 6 | [Review](blueprint/06-review.md) | code measures levels, sync and dead time, a pixel-only critic runs at least three rounds, **you watch and listen** |
 | 7 | [Publish](blueprint/07-publish.md) | by hand, the platform rules that matter |
@@ -79,7 +79,7 @@ brand/            your project, filled in by the AI in step 0 (empty here)
 docs/craft.md     20 measured rules: rhythm, character animation, sound, transitions
 studio/           Remotion project: finds every work/videos/<id>/Video.tsx, brand helpers,
                   render.mjs (render → measure sound → contact sheet → dead-time check),
-                  music.mjs (music bed via Google Lyria), beats.py (measured beat grid)
+                  music.mjs (music bed, free and local with ACE-Step), beats.py (measured beat grid)
 examples/         a small from-scratch video to copy
 sfx/              177 CC0 sound effect files (optional – effects are synthesised in code)
 setup.sh          installs the studio, the official Remotion skills and the Python audio tools

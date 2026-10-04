@@ -43,7 +43,7 @@ Videos are written from scratch per idea – no component library is included. (
 
 ## Music
 
-Music beds are generated per video with [Google Lyria](https://ai.google.dev/gemini-api/docs/music-generation) through the Gemini API (`studio/music.mjs`, your own API key). Google does not claim ownership of generated content ([Gemini API terms](https://ai.google.dev/gemini-api/terms)); every track carries a SynthID watermark. Beat measurement uses [librosa](https://librosa.org) (ISC), installed by `setup.sh`.
+Music beds are generated per video, by default locally with [ACE-Step 1.5](https://github.com/ace-step/ACE-Step-1.5) (MIT © 2026 ACEStep; installed by `studio/setup-music.sh`, not included). Its model card states that generated music may be used commercially and that it was trained on licensed, royalty-free and synthetic music ([Hugging Face](https://huggingface.co/ACE-Step/Ace-Step1.5)) – a claim of the authors, not independently verified. Optional: [Google Lyria](https://ai.google.dev/gemini-api/docs/music-generation) through the Gemini API with your own key; Google does not claim ownership of generated content ([Gemini API terms](https://ai.google.dev/gemini-api/terms)), every track carries a SynthID watermark. Beat measurement uses [librosa](https://librosa.org) (ISC), installed by `setup.sh`.
 
 ## Sound effect files (`sfx/`, optional)
 
@@ -61,5 +61,5 @@ Kallaway's public videos on hooks and content strategy (methods restated in our 
 
 - `blueprint/` – the workflow, including the project analysis in step 0 (nothing comparable existed)
 - `CLAUDE.md`, `brand/` templates, `docs/craft.md`
-- `studio/`: `Root.tsx` (finds every `work/videos/<id>/Video.tsx`), `brand.ts`, `brand-fonts.tsx`, `render.mjs` (render, sound measurement, contact sheet, dead-time check, version history), `music.mjs` (one call to the Gemini API, as in Google's docs), `beats.py` (librosa beat and onset detection to JSON), the README banner
+- `studio/`: `Root.tsx` (finds every `work/videos/<id>/Video.tsx`), `brand.ts`, `brand-fonts.tsx`, `render.mjs` (render, sound measurement, contact sheet, dead-time check, version history), `music.mjs`, `music_ace.py`, `setup-music.sh` (call ACE-Step as in its `docs/en/INFERENCE.md`, or the Gemini API as in Google's docs), `beats.py` (librosa beat and onset detection to JSON), the README banner
 - `examples/hello/Video.tsx`

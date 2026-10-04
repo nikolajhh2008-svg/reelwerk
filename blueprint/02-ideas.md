@@ -8,13 +8,13 @@ Every idea run reads: `brand/project.md`, `brand/strategy.md`, `brand/voice.md`,
 
 ## 2.2 The formula
 
-Every idea names four parts, or it is not an idea:
+Every idea names these parts, or it is not an idea:
 
-> **Signal × Mechanism × Project truth × Viewer**
+> **Signal × Mechanism × Viewer** – plus **Project truth** for *show* and *inform* videos only
 
-- **Signal** – why now: a date, a trend, a common question, an outlier, something the human experienced this week. **A trend can come from anywhere in culture** – a meme, a format, a sound, a series everyone watches – and need not have anything to do with the niche. The content is the project's; the trend only lends its structure (2.4).
+- **Signal** – why now: a date, a trend, a common question, an outlier, something the human experienced this week. **A trend can come from anywhere in culture** – a meme, a format, a sound, a series everyone watches – and need not have anything to do with the niche. The trend only lends its structure (2.4).
 - **Mechanism** – why people stay: hook type, story shape, humour mechanism.
-- **Project truth** – what only this project can show or say (two-second moment, expertise, story).
+- **Project truth** – what only this project can show or say (two-second moment, expertise, story). **Not required for entertainment:** an entertaining video only needs the viewer's life and the brand's character in it – it does not have to be about the product or its topic. Forcing the product into every idea is what makes a feed boring.
 - **Viewer** – which concrete pain or wish of the one viewer.
 
 ## 2.3 Signals – where they legally come from
@@ -45,7 +45,7 @@ Humour on its own does not travel; in the strongest study it worked only togethe
 
 ## 2.5 Free round first, structure second
 
-Too many rules and examples make a model dig into one theme and stay stuck there. So the first round has **no grid, no buckets, no formula**: read the radar and the brand files once, then write 30 ideas as wild and different as possible – one line each. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
+Too many rules and examples make a model dig into one theme and stay stuck there. So the first round has **no grid, no buckets, no formula**: read the radar and the brand files once, then write **at least 50 ideas** as wild and different as possible – one line each, spread over **at least 10 different areas of the viewer's whole life** (for a student e.g. friends, phone, family, sleep, food, gaming, music, sport, seasons, internet culture, school day, writing, the future …), **at most one in five on the product's own topic**. Think in absurd comparisons, characters, genres, games and formats from other worlds – not in tips. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
 
 ## 2.5b Force variety
 
@@ -56,7 +56,7 @@ Too many rules and examples make a model dig into one theme and stay stuck there
 
 Named creativity frameworks (SCAMPER, Six Hats, personas) showed little effect over plain prompting in the studies we found – generate many, then select in a separate pass.
 
-That yields roughly 100 raw ideas per week. One line each: cell · lens · idea · four formula parts · probability.
+That yields roughly 100 raw ideas per week. One line each: cell · lens · idea · formula parts · probability.
 
 ## 2.6 Humour is assembled, not invented
 
@@ -65,7 +65,7 @@ Language models are better at making jokes unfunny than at inventing funny ones.
 ## 2.7 Filter
 
 1. **Duplicates:** an idea that only rewords another raw idea or one in `memory.jsonl` is out – same thought counts, not same words.
-2. **Hard yes/no:** a stranger with no context understands on mute within two seconds what it is about (a number or term only insiders know is not a hook) · all four formula parts present · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
+2. **Hard yes/no:** a stranger with no context understands on mute within two seconds what it is about (a number or term only insiders know is not a hook) · the formula parts present (project truth only for show/inform) · doable with `brand/assets.md` · `brand/rules.md` respected · no number without a source · no bait.
 3. **Hook probe:** write one quick hook sentence. If there is no clean hook, the idea is weak – out.
 
 ## 2.8 Rank in a separate pass

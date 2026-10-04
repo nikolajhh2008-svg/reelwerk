@@ -24,7 +24,6 @@ All skills in `.claude/skills/` are third-party open-source skills (origin and l
 | Render | `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `caption-animation` + the Onda docs in [`docs/onda/`](docs/onda/) |
 | Caption, plan | `viral-captions-and-ctas`, `ig-caption`, `ig-plan`, `viral-tiktok-content`, `viral-instagram-reels`, `social` |
 | German-language text | `humanizer-de` |
-| Testing skills | `skill-creator` |
 
 ## Where the skills expect files
 

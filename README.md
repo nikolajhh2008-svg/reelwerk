@@ -74,7 +74,7 @@ You get a shortlist of ten ideas with three hooks each, pick the ones you like (
 ```
 blueprint/        the workflow, step by step – what the AI follows
 brand/            your project, filled in by the AI in step 0 (empty here)
-.claude/skills/   22 third-party skills for ideas, hooks, scripts, captions
+.claude/skills/   21 third-party skills for ideas, hooks, scripts, captions
 docs/craft.md     20 measured rules: rhythm, character animation, sound, transitions
 docs/onda/        how scripts are composed (Onda's agent docs)
 studio/           Remotion project: 33 Onda components, 11 transitions, a pose-based character,

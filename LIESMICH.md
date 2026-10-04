@@ -26,7 +26,7 @@ Du bekommst zehn Ideen mit je drei Hooks, wählst aus (`2b, 5a, 7c`), und die fe
 ## Was drin ist
 
 - **`blueprint/`:** der Ablauf in neun Schritten, von der Projekt-Analyse bis zum Lernen aus echten Zahlen
-- **`.claude/skills/`:** 22 übernommene Skills für Ideen, Hooks, Drehbücher und Captions – **kein einziger selbst geschrieben**
+- **`.claude/skills/`:** 21 übernommene Skills für Ideen, Hooks, Drehbücher und Captions – **kein einziger selbst geschrieben**
 - **`studio/`:** Remotion mit 33 Bausteinen und 11 Übergängen von [Onda](https://github.com/degueba/onda), eine Figur aus PNG-Posen und ein Render-Skript, das den Ton auf −3 dBTP pegelt, einen Kontaktbogen erstellt und Stillstand misst
 - **`docs/craft.md`:** 20 gemessene Handwerksregeln zu Takt, Figur, Sound und Übergängen
 - **`sfx/`:** 177 CC0-Geräusche mit Klanganalyse

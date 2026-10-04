@@ -16,7 +16,6 @@ Each folder contains its original licence file. Unchanged unless noted.
 | `hook-writing`, `hook-tactics`, `hook-voice-patterns`, `visual-formats` | [motion-team/creative-strategy-skills](https://github.com/motion-team/creative-strategy-skills) | `8e467a3` | MIT © 2026 Motion Creative Strategy Team | none |
 | `short-form-video`, `countdown-video`, `caption-animation` | [iart-ai/tiktok-video-skills](https://github.com/iart-ai/tiktok-video-skills) | `2a77533` | MIT | none |
 | `social` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | `dda3841` | MIT | none |
-| `skill-creator` | [anthropics/skills](https://github.com/anthropics/skills) | `8a1541c` | Apache-2.0 (`LICENSE.txt` in the folder) | none |
 | `humanizer-de` | [marmbiz/humanizer-de](https://github.com/marmbiz/humanizer-de) (Martin Moeller) | `a856fa4` | MIT © 2026 Martin Moeller | none |
 | `remotion-best-practices`, `remotion-render`, `remotion-markup`, `remotion-multimedia`, `remotion-captions` | [remotion-dev/skills](https://github.com/remotion-dev/skills) | see `skills-lock.json` | no licence file (Remotion License) | **not included** – installed by `setup.sh` through the official installer |
 

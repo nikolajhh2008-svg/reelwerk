@@ -15,7 +15,7 @@ export { countUpSchema, type CountUpProps };
  * <CountUp from={0} to={1247} prefix="$" suffix="+" />
  */
 export const CountUp: React.FC<CountUpProps> = ({
-  from, to, delay, duration, decimals, locale, prefix, suffix, color, fontSize, size, fontFamily,
+  from, to, delay, duration, decimals, locale = "en-US", prefix, suffix, color, fontSize, size, fontFamily,
   fontWeight = 600, letterSpacing = 'normal', lineHeight = 1.1, align = 'left', placement,
 }) => {
   const frame = useCurrentFrame();

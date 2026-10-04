@@ -35,12 +35,12 @@ Scale down proportionally for 3–5 videos. The family shares from 00-analyze.md
 
 ## 1.4 Formats this project can do
 
-Mark which template formats in `studio/` are possible with the assets that exist (00-analyze.md, 0.4):
+Mark which formats fit the project (every format is built from scratch):
 
 | Format | Needs |
 |---|---|
 | **Carousel** – 4–8 slides, swipe | any; best for inform (saves) |
-| **Screen demo** – product moment with camera moves | option A, B or C |
+| **Product idea** – what the product does, as an animated illustration | a clear two-second moment (00-analyze.md, 0.3) |
 | **Character skit** – mascot/character reacts | a character with several poses |
 | **Comment reply** – a real comment on screen, answered | a real comment |
 | **Countdown / series** – "day 12 of 100" | a real date or series |

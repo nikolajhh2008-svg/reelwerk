@@ -1,6 +1,6 @@
 # 4 · Build the video – from scratch
 
-Every video is **its own piece of code**, written for this one idea: `work/videos/<id>/Video.tsx`. No component library, no recycled scenes, no screens copied from the product. What the brand gives you is all you start with: colours, fonts and the character poses in `brand/theme.json`, plus any assets the human listed in `brand/assets.md` for use. Everything else – layout, typography, objects, motion, transitions, sound – you design and build.
+Every video is **its own piece of code**, written for this one idea: `work/videos/<id>/Video.tsx`. No component library, no recycled scenes, no screens copied from the product. What the brand gives you is all you start with: colours, fonts, the character poses and the logo in `brand/theme.json`. Nothing is taken from the project's code, UI, recordings or screenshots. Everything else – layout, typography, objects, motion, transitions, sound – you design and build.
 
 Skills: `viral-short-form`, `short-form-video` (retention structure), the motion-design skills listed in `CLAUDE.md`, `remotion-best-practices` and `remotion-markup` (Remotion APIs). Craft values: [`docs/craft.md`](../docs/craft.md).
 

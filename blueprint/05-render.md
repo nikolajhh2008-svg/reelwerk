@@ -14,8 +14,4 @@ Skills for anything Remotion-specific: `remotion-best-practices`, `remotion-rend
 
 Render each slide as a still at 1080×1350 (Instagram) and 1080×1920 (TikTok photo mode): set the composition size in the script and render with `npx remotion still … --image-format=jpeg --jpeg-quality=90`, one frame per slide at the moment every element has arrived. Instagram crops a carousel to the first slide's ratio; TikTok photo mode accepts JPEG/WebP only.
 
-## Product footage
-
-Only if `brand/assets.md` lists recordings or screenshots as allowed: use them as footage inside your own scenes (`<OffthreadVideo>`/`<Img>` with your own camera moves). Never show real user data, never invent screens.
-
 Then go to [06-review.md](06-review.md).

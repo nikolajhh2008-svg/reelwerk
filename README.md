@@ -17,7 +17,7 @@ Some inform, some entertain, some show the product. Your project decides the mix
 
 </div>
 
-Most "AI content machines" produce the same average videos everyone else produces. reelwerk starts somewhere else: **your project.** Before a single idea is written, your AI reads your codebase, docs and site, finds what can honestly be shown, and decides which kinds of video make sense for *this* product – a study app might teach, a game might mostly entertain, a dev tool might mostly demo. Then it works through a step-by-step blueprint: ideas forced to be different, a batch of hooks per idea, a script, a render, automatic checks. You pick the ideas and approve every video.
+Most "AI content machines" produce the same average videos everyone else produces. reelwerk starts somewhere else: **your project.** Before a single idea is written, your AI reads your codebase, docs and site to understand what the product really does, and decides which kinds of video make sense for *this* product – a study app might teach, a game might mostly entertain, a dev tool might mostly demo. Then it works through a step-by-step blueprint: ideas forced to be different, a batch of hooks per idea, a script, a render, automatic checks. You pick the ideas and approve every video.
 
 The workflow uses skills from people who do this for a living. The videos themselves are not assembled from templates: **every video is written from scratch for its idea** – its own visual metaphor, motion and transitions – with only your brand (colours, fonts, character) as given.
 
@@ -57,7 +57,7 @@ You get a shortlist of ten ideas with three hooks each, pick the ones you like (
 
 | # | Step | What happens |
 |---|---|---|
-| 0 | [Analyze](blueprint/00-analyze.md) | read the project; find two-second moments; decide how the product can appear (real components, screen recordings, images, or none); **derive the mix of informing, entertaining and showing videos** |
+| 0 | [Analyze](blueprint/00-analyze.md) | read the project to understand it – what it really does, for whom; find two-second moments; **derive the mix of informing, entertaining and showing videos**. Nothing visual is taken from the project |
 | 1 | [Strategy](blueprint/01-strategy.md) | one viewer, one goal, a bullseye of topics, a weekly mix – confirmed by you |
 | 2 | [Ideas](blueprint/02-ideas.md) | ~100 raw ideas from real signals, forced to differ, filtered, ranked in pairs |
 | 3 | [Hooks](blueprint/03-hooks.md) | a batch of hook packages per idea, audited for the four hook killers – **you pick** |

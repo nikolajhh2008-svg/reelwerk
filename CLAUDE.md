@@ -39,7 +39,7 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 ## Rules that override the skills
 
 - **No number without a source.** Many hook skills quote percentages without evidence; never put those into a video.
-- **Real visuals only.** Only assets listed in `brand/assets.md` and real product UI. Never invent a screen, never show real user data, no realistic AI people.
+- **Only the brand files are given** (colours, fonts, character, logo). Never take components, animations, screenshots or recordings from the project; show features as illustrations built from scratch, never as a fake real screen. No realistic AI people.
 - **Faceless and voiceless by default:** the "spoken hook" is the character's first speech bubble or the first line of text; music is chosen in the app when posting. Sound effects are designed with the picture – no cheap click sprinkles (04-script.md, 4.3).
 - **Every video is built from scratch** (`blueprint/04-script.md`): a visual idea and storyboard first, then its own `Video.tsx`. No template library, no recycled scenes. Given are only the brand files.
 - **Never a text-only slideshow.** Every video has at least two layers beyond text.

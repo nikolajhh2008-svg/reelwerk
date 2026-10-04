@@ -4,7 +4,7 @@ Every video is **its own piece of code**, written for this one idea: `work/video
 
 What separates the strong code-made videos from the forgettable ones is not the renderer and not a longer rulebook. It is four things: **an idea that escalates, a named medium or reference, real material, and a loop that looks at its own frames** ([research notes in CREDITS.md](../CREDITS.md#research-behind-the-blueprint)). This step is built around exactly those four.
 
-Use the highest reasoning effort your agent offers for this step; ideas and hooks do not need it.
+Use the highest reasoning effort your agent offers for this step; ideas and hooks do not need it (medium is enough there).
 
 Skills, in the order you need them: `anidoodle-storytelling` (the visual idea) · `storytelling-hooks` (six levers, three hook layers), `short-form-video` and `viral-short-form` (retention: open loop, pattern interrupts, no flat middle, payoff), `visual-formats` (format library) · `remotion-director` (two directions, blind pick, critic loop) · `motion-grammar` and `animation-guide` (transitions, holds, character timing) · `procedural-sfx` (sound effects and mix) · `remotion-best-practices`, `remotion-markup`, `remotion-multimedia` (Remotion APIs). Hook-writing, caption and idea skills are **not** loaded here.
 
@@ -37,7 +37,7 @@ Write the choice as one line into `work/videos/<id>/shape.json` and append it to
 
 ## 4.2 Two directions
 
-Start the `direction-lister` agent (from `remotion-director`) in a fresh context with the premise, the spec and N = 2: it returns **two directions that differ at the idea level** – one or two sentences of mechanism each. Use only its agents and protocols – do not scaffold remotion-director's own workspace; everything is built in `studio/`. **You** then add to each direction:
+**One direction by default** – build it yourself from the premise. Only when there is time and the idea is open, start the `direction-lister` agent (from `remotion-director`) in a fresh context with the premise, the spec and N = 2: it returns **two directions that differ at the idea level** – one or two sentences of mechanism each. Use only its agents and protocols – do not scaffold remotion-director's own workspace; everything is built in `studio/`. **You** then add to each direction:
 
 - **the visual idea** – what the viewer *sees* that makes the point without words (a counter climbing from 1 to 29 until the mailbox bursts; one element that morphs through the whole film; a tower of 40,000 characters that collapses),
 - **a named medium** in two or three words (`paper cut-out`, `chalk on a blackboard`, `exercise-book doodle`, `WarioWare micro-game`, `split-flap board`) and, if `work/taste/` has one, a reference frame – borrow its grammar, never its content or characters,

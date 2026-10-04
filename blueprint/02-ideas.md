@@ -49,7 +49,10 @@ Too many rules and examples make a model dig into one theme and stay stuck there
 
 **Two generators, not one:** run the free round as **two sub-agents in fresh contexts** (both get only `brand/` and the radar): one starts from the radar and culture, the other from the viewer's life areas and genres from other worlds. A single context drifts into one theme; two fresh ones do not see each other's drift. Merge their lists, then continue here. Only after that, use the steps below to fill gaps and to filter. Never copy an example from `brand/` or this file into an idea.
 
-## 2.5b Force variety
+## 2.5b Force variety – only if the free round is too narrow
+
+Skip this section when the free round already covers at least 10 areas of life with 80+ ideas; it costs time and adds little then.
+
 
 1. **Grid:** draw 10 cells from format × area of life × emotion × hook type × family, so that many formats and life areas appear (buckets only if the project has them).
 2. **Lenses:** attack each cell from several angles – the viewer late at night, the character, against the common advice, the comment someone would write, the human's own week.

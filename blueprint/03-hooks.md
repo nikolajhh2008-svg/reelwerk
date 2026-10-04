@@ -28,7 +28,7 @@ Right after the hook the viewer checks: **is the hook's promise confirmed?** For
 
 ## 3.4 Make a batch
 
-Per idea: title lines across at least 6 different hook types (`ig-reel` formulas, Kallaway's six archetypes via `viral-hooks`, the six levers and first-frame patterns of `storytelling-hooks`, the hook pattern library of `short-form-video` – for entertainment lead with visual first-frame hooks: mid-action, an odd object, a broken expectation), about 3 per type, plus one verbalized-sampling round (only candidates below 0.10). Then build **3 full packages** per idea from the best lines – not more. A full package is: title text · first line · picture (which asset, which motion) · sound (one SFX on the first frame or silence) · **the one question the viewer now has** · lock-in line · proof (inform/show) or escalation (entertainment). If no clean hook comes out after two tries, send the idea back to 02-ideas.md.
+For the **top 3 ideas only** (the other shortlisted ideas get one quick hook line each): title lines across at least 6 different hook types (`ig-reel` formulas, Kallaway's six archetypes via `viral-hooks`, the six levers and first-frame patterns of `storytelling-hooks`, the hook pattern library of `short-form-video` – for entertainment lead with visual first-frame hooks: mid-action, an odd object, a broken expectation), about 3 per type, plus one verbalized-sampling round (only candidates below 0.10). Then build **3 full packages** per idea from the best lines – not more. A full package is: title text · first line · picture (which asset, which motion) · sound (one SFX on the first frame or silence) · **the one question the viewer now has** · lock-in line · proof (inform/show) or escalation (entertainment). If no clean hook comes out after two tries, send the idea back to 02-ideas.md.
 
 ## 3.5 Audit, then rank
 
@@ -36,7 +36,7 @@ Per idea: title lines across at least 6 different hook types (`ig-reel` formulas
 2. Hard checks: three layers agree · title text rules met · picture uses a real asset · the video keeps the promise · `brand/rules.md` respected · not a near-copy of a recent hook · no banned opener ("hey guys", logo first, "you won't believe", empty "POV:", CTA first).
 3. Rank in a separate pass, pairs in both orders, scores with confidence.
 
-Output: 3 packages from 3 different types per idea, into `work/ideas/<week>/<idea-key>-hooks.json`. A video ID (`work/videos/<id>/`) is only given when an idea is actually built.
+Output: 3 packages from 3 different types for each of the top 3 ideas, into `work/ideas/<week>/<idea-key>-hooks.json`. A video ID (`work/videos/<id>/`) is only given when an idea is actually built.
 
 ## 3.6 The human picks – this is not optional
 

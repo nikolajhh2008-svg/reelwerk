@@ -6,7 +6,8 @@ Sound first (04-script.md, 4.6), then the picture:
 node studio/music.mjs work/videos/<id> --variants 2          # music bed (ACE-Step, local)
 .venv/bin/python studio/beatgrid.py work/videos/<id>/audio/music-1.wav
 # timing.ts from the measured beats, events.json from timing.ts, then procedural-sfx mix.py + master.sh → audio/mix.wav
-node studio/render.mjs work/videos/<id>
+node studio/render.mjs work/videos/<id> --draft     # half resolution, much faster – for every preview and critic round
+node studio/render.mjs work/videos/<id>             # full resolution – only the final version
 node studio/review.mjs work/videos/<id> r1                  # the critic's material for round 1 (06-review.md)
 ```
 

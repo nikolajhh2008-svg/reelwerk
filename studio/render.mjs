@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Render one video and measure it.
-//   node render.mjs ../work/videos/<id>          (folder with Video.tsx)
+//   node render.mjs ../work/videos/<id> [--draft]  (folder with Video.tsx; --draft = half resolution, for previews)
 // Writes into that folder: <id>.mp4, contact.jpg (one frame every 0.5 s), check.json.
 // Earlier renders are kept in renders/ (<id>-v1.mp4 …) for before/after.
 // The mix is the video's job: this script does NOT change the sound, it only measures it.
@@ -30,7 +30,8 @@ if (existsSync(out)) {
 
 // 1) Render
 console.log(`render ${comp} …`)
-execFileSync("npx", ["remotion", "render", comp, out, "--log=error"], { cwd: studio, stdio: "inherit" })
+const draft = process.argv.includes("--draft") // half resolution for previews and critic rounds
+execFileSync("npx", ["remotion", "render", comp, out, "--log=error", ...(draft ? ["--scale=0.5"] : [])], { cwd: studio, stdio: "inherit" })
 
 // 2) Measure sound (EBU R128 integrated loudness + true peak) – no changes
 const sh = (cmd) => execFileSync("sh", ["-c", `${cmd} 2>&1 || true`], { encoding: "utf8" })

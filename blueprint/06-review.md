@@ -15,7 +15,7 @@ Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/250
 
 If the human is around, put the **first render** where they watch (the synced folder) before the critic starts, together with the key-frame sheet. Polishing a video whose idea or message is fundamentally wrong wastes the rounds: **ok** → critic rounds; **back** with one sentence → go back to 04 (or 02) instead of polishing. In an unattended run, keep the first render as `renders/<id>-first.mp4` so the human can compare first cut and final cut.
 
-## 6.2 The critic – at least three rounds
+## 6.2 The critic – at most two rounds
 
 Start the `aesthetic-critic` agent once and keep the **same instance** for every round (protocol: `.claude/skills/remotion-director/skills/critic-loop/CRITIC-PROTOCOL.md`), with the checklists from `motion-grammar` (`quality-bar.md`, `critic-prompts.md`, `gauntlet.md`) and [`docs/craft.md`](../docs/craft.md). It gets what `node studio/review.mjs work/videos/<id> <round>` puts into `review/r<round>/`: the contact sheet (2 frames/s), frame strips around every transition, the four key frames at full size and at 360 px wide (phone test), and `measurements.md` with numbers only (loudness, peaks, sync offsets – the critic may not read logs or code). Its protocol returns findings, severity and `CONVERGED`; ask for the scores and questions below in each round message.
 
@@ -31,7 +31,7 @@ Also ask, every time:
 - **Boring check:** same layout three beats in a row, text appearing the same way every time, a character standing still beside text.
 - Does the end deliver what the hook promised? Anything from `brand/rules.md` broken?
 
-Stop when every score is ≥ 8 or after five rounds; then mark it "needs human" and say why.
+Stop when every score is ≥ 8 or after **two rounds** (in testing, rounds 3–5 changed almost nothing – a weak idea is not fixed by polishing); then mark it "needs human" and say why.
 
 ## 6.3 Human
 

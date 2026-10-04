@@ -12,6 +12,8 @@ Skills, in the order you need them: `anidoodle-storytelling` (the visual idea) �
 
 Every video plays **somewhere a viewer recognises, with someone doing something**: a bedroom at 2 a.m., a classroom, a group chat, a kitchen table, a bus, a phone screen. The character acts in that scene. **Never an abstract void** where a word, a diagram or a metaphor is the whole world – a viewer who does not already know the concept sees nonsense (first full test run, human verdict: "Wie kann ein Wort der Hintergrund sein? … Das hat nichts mit irgendwas zu tun."). A visual trick (a morph, a zoom, a transformation) is allowed only *inside* such a scene, never instead of it.
 
+**Every video is a story that starts somewhere.** Before anything else, write it as one plain sentence a 12-year-old understands: **who · where · wants what · what goes wrong · how it ends** – e.g. "Kritiko sits in class, wants to secretly eat his sandwich, the wrapper rustles louder with every bite, the whole class turns round." If that sentence needs a concept explained, or the first seconds do not show *where we are and who it is about*, the idea is not a story yet – go back to 02. (Human verdict on an abstract test video: "Es ist keine Story dahinter … du musst die Grundregel machen, dass es irgendwo anfängt.")
+
 ## 4.1 Premise, not topic
 
 Write one sentence: **"the character wants X – obstacle Y – it escalates Z – payoff."** Then the transformation in two words with an arrow (`empty → overflowing`, `chaos → one line`). A topic ("why sources matter") is not a premise. A video without a premise does not get built – send it back to 02.

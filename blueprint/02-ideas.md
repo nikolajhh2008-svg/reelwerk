@@ -4,7 +4,7 @@ Skills: `viral-short-form-ideas` (pillars, matrix, mining), `ig-viral` (outlier 
 
 ## 2.1 Load material first
 
-Every idea run reads: `brand/project.md`, `brand/strategy.md`, `brand/voice.md`, `brand/rules.md`, `brand/assets.md`, the newest file in `work/radar/` and `work/raw/`, everything in `work/taste/`, and `work/ideas/memory.jsonl` (every idea ever made, with status). **Without real material every model produces the same average ideas** – in one study, answers from different model families were 71–82 % similar ([Jiang et al., "Artificial Hivemind", NeurIPS 2025](https://arxiv.org/abs/2510.22954)). A second model or a higher temperature does not fix this; real material does.
+Every idea run reads: `brand/project.md`, `brand/strategy.md`, `brand/voice.md`, `brand/rules.md`, `brand/assets.md`, the newest file in `work/radar/` and `work/raw/`, `brand/taste.md` (if it exists) and everything in `work/taste/`, and `work/ideas/memory.jsonl` (every idea ever made, with status). **Without real material every model produces the same average ideas** – in one study, answers from different model families were 71–82 % similar ([Jiang et al., "Artificial Hivemind", NeurIPS 2025](https://arxiv.org/abs/2510.22954)). A second model or a higher temperature does not fix this; real material does.
 
 ## 2.2 The formula
 

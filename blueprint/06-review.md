@@ -10,6 +10,8 @@ Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/250
 | Dead time | no stretch ≥ 2 s without motion; ≥ 3 s is an error |
 | Length | as planned, usually 15–35 s |
 
+The dead-time check counts hops, text, camera and footage – not breathing or small icons. A scene that repeats the same sentence for 6+ seconds can pass the check and still feel long: judge pacing on the contact sheet too.
+
 If dead time is flagged: add a moving layer to that scene (pose change, highlight, counter, camera move) or shorten it, render again.
 
 ## 6.2 AI (looks at `contact.jpg` and single frames)

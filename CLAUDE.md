@@ -43,6 +43,7 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 - **Faceless and voiceless by default:** the "spoken hook" is the character's first speech bubble or the first line of text; music is chosen in the app when posting; the video file carries sound effects only.
 - **Never a text-only slideshow.** Every video has at least two layers beyond text.
 - **Never post, upload or send anything.** Never open Remotion Studio in an unattended run; render with `node studio/render.mjs`.
+- `ig-reel`'s `hookscore.py` and `beats.py` are calibrated on English (word lists, no umlauts) – for other languages treat their scores as a weak signal only.
 - Craft rules: [`docs/craft.md`](docs/craft.md). They apply to every script.
 - `brand/rules.md` beats everything in this file.
 

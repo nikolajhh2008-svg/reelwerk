@@ -5,7 +5,7 @@ cd studio
 node render.mjs ../work/videos/<id>/props.json
 ```
 
-This renders the video with Remotion, sets the embedded sound to a **−3 dBTP** peak (the SFX file is not normalised to a loudness target – music is added later in the app), writes a contact sheet (one frame every 0.5 s) and measures dead time. Output next to the script: `<id>.mp4`, `contact.jpg`, `check.json`.
+This renders the video with Remotion, sets the embedded sound to a **−3 dBTP** peak (the SFX file is not normalised to a loudness target – music is added later in the app), writes a contact sheet (one frame every 0.5 s) and measures dead time. Output next to the script: `<id>.mp4`, `contact.jpg`, `check.json`. Every earlier render is kept in `renders/` (`<id>-v1.mp4`, `-v2` …) so the human can compare before and after.
 
 Single frames while working: `npx remotion still Video out/x.png --props=../work/videos/<id>/props.json --frame=45`.
 

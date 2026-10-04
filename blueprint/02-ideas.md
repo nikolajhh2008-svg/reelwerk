@@ -52,4 +52,4 @@ Language models are better at making jokes unfunny than at inventing funny ones.
 
 Re-read the survivors as a judge, not as the author. Same shape for all (hook line + 3 beats + 1 picture) so length does not win. Score with one decimal **plus a confidence** (0–100 %): understood muted in 2 s? · does the viewer recognise themselves? · contrast? · would they send it to a friend? · shows the project without feeling like an ad? Then compare the top 20 in pairs, each pair in **both orders** (judges have position bias – [Shi et al.](https://arxiv.org/abs/2406.07791)); disagreement = tie.
 
-Output: `work/ideas/<week>-shortlist.md` – 10 ideas, at most 2 per format, at least one per bucket – then run [03-hooks.md](03-hooks.md) on each. Append every raw idea to `work/ideas/memory.jsonl`.
+Output: `work/ideas/<week>-shortlist.md` – 10 ideas, at least one per bucket, formats spread as evenly as the allowed formats permit (at most 2 per format when 5 or more formats are possible; with fewer formats, at most 3) – then run [03-hooks.md](03-hooks.md) on each. Append every raw idea to `work/ideas/memory.jsonl`.

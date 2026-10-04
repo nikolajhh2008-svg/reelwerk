@@ -7,6 +7,7 @@
 import { execFileSync } from "node:child_process"
 import { existsSync, writeFileSync, renameSync, rmSync } from "node:fs"
 import path from "node:path"
+import { mkdirSync, copyFileSync, readdirSync } from "node:fs"
 
 const propsPath = path.resolve(process.argv[2] ?? "")
 if (!existsSync(propsPath)) {
@@ -26,6 +27,15 @@ const parse = (txt) => {
 }
 // ebur128 prints its summary to stderr; read it through a shell so the exit code does not matter
 const statsTxt = (file) => parse(execFileSync("sh", ["-c", `ffmpeg -hide_banner -nostats -i "${file}" -af ebur128=peak=true -f null - 2>&1 || true`], { encoding: "utf8" }))
+
+// 0) Keep the previous render, so every fix can be compared before/after (renders/<id>-v1.mp4, -v2 …)
+if (existsSync(out)) {
+  const hist = path.join(dir, "renders")
+  mkdirSync(hist, { recursive: true })
+  const n = readdirSync(hist).filter((f) => f.endsWith(".mp4")).length + 1
+  copyFileSync(out, path.join(hist, `${id}-v${n}.mp4`))
+  if (existsSync(path.join(dir, "contact.jpg"))) copyFileSync(path.join(dir, "contact.jpg"), path.join(hist, `${id}-v${n}-contact.jpg`))
+}
 
 // 1) Render
 console.log(`render ${id} …`)

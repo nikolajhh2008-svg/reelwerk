@@ -46,6 +46,7 @@ From [`docs/craft.md`](../docs/craft.md) (measured values with sources):
 - Transitions: `push`/`slide` between places, `morph`/`crossFade` for calm, `zoom` only as punctuation. No more than one transition type per video plus one accent.
 - Sound: fewer sounds than events, one hero sound per video, clicks and hits **on** the frame of the event (never earlier), whooshes 4–6 frames before a transition. Pick by effect from `sfx/sfx-analysis.md` (prefer warm, low-risk files).
 - **Never a text-only slideshow.** Every video has at least two layers beyond text (character, product visual, motion, sound).
+- Known component limits: `QuoteCard` has a fixed `maxWidth: 40vw` (built for landscape) – on 9:16 use `WordStagger` + `Underline` instead. There is no speech-bubble component; use `Callout` (its pointer is a thin line). `VideoClip` only crops centred – to show part of a recording, cut it first with ffmpeg into `work/videos/<id>/media/` (crop and trim only, content unchanged).
 - Every Onda component has defaults – always set the visible text props yourself, so no placeholder text from the library ends up in a video.
 
 ## 4.4 Check the script before rendering

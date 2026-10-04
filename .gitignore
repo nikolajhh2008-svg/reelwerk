@@ -5,10 +5,13 @@ studio/build/
 .agents/
 # Remotion skills have no licence file – installed by setup.sh from skills-lock.json
 .claude/skills/remotion-*/
+!.claude/skills/remotion-director/
 # your work stays local
 work/**
 !work/**/
 !work/**/.gitkeep
+# python
+.venv/
 # python caches
 __pycache__/
 *.pyc

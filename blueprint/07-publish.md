@@ -5,7 +5,7 @@ Skills: `viral-captions-and-ctas`, `ig-caption` (caption text), `ig-plan`, `vira
 ## Why by hand
 
 - **TikTok:** an app that only posts to your own account does not pass TikTok's audit – "A utility tool to help upload contents to the account(s) you or your team manages" is listed as not acceptable – and unaudited apps can only post privately ([TikTok Content Sharing Guidelines](https://developers.tiktok.com/doc/content-sharing-guidelines)). Post in the app, or through an audited scheduling tool.
-- **Music** comes from the app's library at posting time (business accounts: the commercial library only). Keep the video's own sound at 100 %, set the music to about 30–50 %, and adjust the slider last – it resets when the song changes.
+- **Music is already in the video** (04-script.md, 4.6). Post with the original sound and add no app music on top. Only if a trend sound is the point of the video: use the app library (business accounts: the commercial library only), keep the original sound at 100 %, the added song at about 30–50 %, and set the slider last – it resets when the song changes.
 - **Carousels:** TikTok photo mode has music only; on Instagram, adding music mutes a video's own sound inside a carousel.
 
 ## Platform rules that matter for coded videos
@@ -17,4 +17,4 @@ Skills: `viral-captions-and-ctas`, `ig-caption` (caption text), `ig-plan`, `vira
 
 ## Checklist per post
 
-Caption pasted · music picked and levelled · disclosure set · link tracked per video (e.g. `?ref=<id>`) · `work/videos/<id>/posted.md` with date, platform and link.
+Caption pasted · original sound kept (no extra app music unless planned) · disclosure set · link tracked per video (e.g. `?ref=<id>`) · `work/videos/<id>/posted.md` with date, platform and link.

@@ -1,0 +1,31 @@
+{
+  "name": "remotion-director",
+  "version": "1.0.1",
+  "private": true,
+  "license": "MIT",
+  "description": "Remotion engine + render harnesses for the remotion-director 甲乙环 pipeline. The design knowledge lives in skills/; this package provides the engine deps and the render/strip tooling.",
+  "dependencies": {
+    "@react-three/fiber": "^9.6.1",
+    "@remotion/bundler": "4.0.523",
+    "@remotion/cli": "4.0.523",
+    "@remotion/effects": "4.0.523",
+    "@remotion/google-fonts": "4.0.523",
+    "@remotion/layout-utils": "4.0.523",
+    "@remotion/light-leaks": "4.0.523",
+    "@remotion/media": "4.0.523",
+    "@remotion/motion-blur": "4.0.523",
+    "@remotion/renderer": "4.0.523",
+    "@remotion/three": "4.0.523",
+    "@types/three": "^0.184.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.523",
+    "three": "^0.184.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.4.0"
+  }
+}

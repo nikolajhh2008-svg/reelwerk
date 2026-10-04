@@ -1,6 +1,11 @@
 # 5 · Render
 
+Sound first (04-script.md, 4.6), then the picture:
+
 ```bash
+node studio/music.mjs work/videos/<id> --variants 2          # music bed (Lyria)
+.venv/bin/python studio/beats.py work/videos/<id>/audio/music-1.mp3
+# timing.ts from the measured beats, events.json from timing.ts, then procedural-sfx mix.py + master.sh → audio/mix.wav
 node studio/render.mjs work/videos/<id>
 ```
 

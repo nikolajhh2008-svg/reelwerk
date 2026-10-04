@@ -16,5 +16,13 @@ npm install --no-audit --no-fund
 npm rebuild esbuild >/dev/null 2>&1 || true
 cd ..
 
+# 3) Python for beat measurement and procedural sound effects (numpy, scipy, soundfile, librosa)
+if command -v uv >/dev/null; then
+  uv venv .venv --python 3.12 -q && uv pip install -q --python .venv/bin/python numpy scipy soundfile librosa
+else
+  python3 -m venv .venv && .venv/bin/pip install -q numpy scipy soundfile librosa
+fi
+
 echo
+[ -n "$GEMINI_API_KEY" ] || echo "Music: set GEMINI_API_KEY (Google AI Studio, paid tier) for studio/music.mjs."
 echo "Done. Start your AI agent in this folder (e.g. 'claude') and say: analyse my project."

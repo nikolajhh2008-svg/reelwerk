@@ -1,34 +1,35 @@
-# 6 · Review – code measures, AI reads, human decides
+# 6 · Review – code measures, a pixel-only critic judges, the human decides
 
-Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/2501.02955)), so each layer checks what it is good at.
+Language models judge fine motion badly ([MotionBench](https://arxiv.org/abs/2501.02955)), and a model that reads its own design doc praises its own render point by point – the same model shown the frame alone names the flaws ([remotion-director](https://github.com/Zane-0x5a/remotion-director), `HOW-IT-WORKS.md`). So each layer checks what it is good at, and **the critic never sees the code, the storyboard or the brief – only pixels.**
 
-## 6.1 Code (from `check.json`)
+## 6.1 Code (from `check.json` and the mix report)
 
 | Check | Pass |
 |---|---|
-| Sound | no clipping (true peak ≤ −1 dBTP); loudness is reported, the mix is yours |
-| Dead time | no stretch ≥ 2 s without motion; ≥ 3 s is an error |
+| Sound | integrated −14 LUFS ±1, true peak ≤ −1 dBTP, every `CHECK` line of `mix.py` fixed or knowingly accepted |
+| Sync | every hero sound within one frame of its event (both come from `timing.ts`); scene changes on measured beats (`*.beats.json`) |
+| Dead time | no stretch ≥ 2 s without motion except the one planned hold; ≥ 3 s is an error |
 | Length | as planned, usually 15–35 s |
 
-The dead-time check counts hops, text, camera and footage – not breathing or small icons. A scene that repeats the same sentence for 6+ seconds can pass the check and still feel long: judge pacing on the contact sheet too.
+## 6.2 The critic – at least three rounds
 
-If dead time is flagged: add a moving layer to that scene (pose change, highlight, counter, camera move) or shorten it, render again.
+Start the `aesthetic-critic` agent once and keep the **same instance** for every round (protocol: `.claude/skills/remotion-director/skills/critic-loop/CRITIC-PROTOCOL.md`), with the checklists from `motion-grammar` (`quality-bar.md`, `critic-prompts.md`, `gauntlet.md`) and [`docs/craft.md`](../docs/craft.md). It gets: `contact.jpg` (2 frames/s), frame strips around every transition, the four key frames at full size and the same frames scaled to 360 px wide (phone test).
 
-## 6.2 AI (looks at `contact.jpg` and single frames)
+Each round:
+1. Score 1–10: hook frame · readable on a phone · motion · variety · composition · brand · sound-to-picture sync (from the mix report and `check.json`).
+2. Name the **three biggest problems with timestamps** and describe the wanted effect, not the fix ("at 3.4 s the line is gone before it can be read", not "add 10 frames").
+3. From round 2 on: check every problem of the previous round one by one – fixed, not fixed, made worse.
+4. Any new default look you spot goes onto `work/taste/banned.md`.
 
-Answer each with yes/no and the frame time:
-- Hook frame (0–1 s): is the title text readable at phone size, inside the safe zone, and does the picture match it?
-- Can the story be followed on mute from the contact sheet alone?
-- Any placeholder text, cut-off text, overlapping elements, empty frames?
-- Brand: colours and fonts from `brand/theme.json` only; nothing from `brand/rules.md` broken.
-- Promise kept: does the end deliver what the hook promised?
-- **Is there a visual idea?** Would the video still make its point with the text removed? If the picture only illustrates the words, rebuild the beat.
-- **Boring check:** same layout three beats in a row, text appearing the same way every time, a character standing still beside text → change it.
+Also ask, every time:
+- **Is there a visual idea?** Would the video still make its point with the text removed?
+- **Boring check:** same layout three beats in a row, text appearing the same way every time, a character standing still beside text.
+- Does the end deliver what the hook promised? Anything from `brand/rules.md` broken?
 
-Fix and re-render at most twice; if it still fails, mark it "needs human" and say why.
+Stop when every score is ≥ 8 or after five rounds; then mark it "needs human" and say why.
 
 ## 6.3 Human
 
-The finished file goes where the human can watch it on the phone (a synced folder such as iCloud Drive or Google Drive – set the path in `brand/strategy.md`). They watch it once with sound and once muted and reply: **ok**, or **back** with one sentence. Every reply goes to `work/taste/`.
+The finished file goes where the human can watch it on the phone (a synced folder – path in `brand/strategy.md`), together with the "not ear-tuned yet" table from `procedural-sfx`. They watch once with sound and once muted, listen to each new sound in the table, and reply **ok** or **back** with notes in the form *timestamp – what it does to them*. Every reply goes to `work/taste/`; approved sound recipes are marked `tuned` and reused.
 
 Then [07-publish.md](07-publish.md).

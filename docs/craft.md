@@ -1,6 +1,6 @@
 # Craft rules for coded short-form video
 
-Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, character animation, sound, transitions, review. Each rule is tagged: **[measured]** – measured on real shorts while building this kit (method below) · **[source]** – a primary or reputable source · **[practice]** – practitioners' rule of thumb · **[judgement]** – our inference.
+Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, character animation, sound, transitions, review. **They are the critic's checklist in 06-review.md – they are not pasted into the build brief.** Each rule is tagged: **[measured]** – measured on real shorts while building this kit (method below) · **[source]** – a primary or reputable source · **[practice]** – practitioners' rule of thumb · **[judgement]** – our inference.
 
 ## Rhythm and picture
 
@@ -24,8 +24,8 @@ Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, char
 12. **Whooshes start 4–6 frames before the cut, peak on the first frame after; risers 30–60 frames, ending on the reveal.** [practice]
 13. **Fewer sounds than events, at most one hero sound per clip, one sound family, alternate variants, two sounds < 40 ms apart → drop one.** [[Material sound guidelines](https://m2.material.io/design/sound/sound-choreography.html)]
 14. **Phone-proof: transient energy at 1–5 kHz, high-pass around 90 Hz, mono or ≤ ±30 % pan.** Phone speakers produce almost nothing below ~250 Hz. [[Audiokinetic](https://blog.audiokinetic.com/loudness-and-frequency-response-on-popular-smart-phones/)]
-15. **Don't normalise the SFX file to −14 LUFS: peaks at −3 dBTP, levels in steps of 0/−4/−8/−12 dB; set the music level once per format in the app.** Neither TikTok nor Meta documents loudness normalisation. [judgement] `render.mjs` measures loudness and true peak; it never changes the mix. Never boost isolated clicks – a sparse track of small sounds pushed to full level sounds cheap and harsh.
-16. **Only licence-clean sounds:** Kenney (CC0) and other CC0 sources. Of `@remotion/sfx`, only the files marked CC0; several popular meme sounds there have unclear origins. [[Kenney](https://kenney.nl/support), [Freesound FAQ](https://freesound.org/help/faq/)]
+15. **Music bed plus effects, mixed and mastered as one track: −14 LUFS integrated, true peak ≤ −1 dBTP; the music ducks under hero sounds.** A sparse track of isolated clicks on silence sounds cheap and harsh – never boost single clicks. `procedural-sfx` mixes (`mix.py --music`, masking report, limiter) and masters (`master.sh`); `render.mjs` only measures. [practice; judgement]
+16. **Only licence-clean sound:** effects synthesised in code (`procedural-sfx`), music generated for the video (Google Lyria, `studio/music.mjs`), or CC0 files (Kenney in `sfx/`). Of `@remotion/sfx`, only the files marked CC0; several popular meme sounds there have unclear origins. [[Kenney](https://kenney.nl/support), [Gemini API terms](https://ai.google.dev/gemini-api/terms)]
 
 ## Transitions
 
@@ -33,7 +33,7 @@ Twenty rules for faceless, voiceless shorts rendered with Remotion: rhythm, char
 
 ## The AI as director and reviewer
 
-18. **The AI fills fixed templates through a schema-validated script – it does not write free animation curves.** [judgement]
+18. **These numbers are for the critic, not for the builder's brief.** The builder gets premise, medium, brand, ban list and the technical contract (04-script.md, 4.4); the critic checks the result against this page. Long rulebooks in the build brief did not beat lighter briefs in a controlled comparison ([remotion-director](https://github.com/Zane-0x5a/remotion-director)). [source; judgement]
 19. **The AI reads contact sheets (every 0.5 s) and frame strips around transitions; motion flow, sync and levels are measured by code.** Multimodal models understand fine motion poorly ([MotionBench](https://arxiv.org/abs/2501.02955)); Gemini samples video at 1 frame per second by default ([Google](https://ai.google.dev/gemini-api/docs/video-understanding)).
 20. **Test every automatic check once against a deliberately bad video; the final approval is a human on a phone, with sound and muted.** [judgement]
 

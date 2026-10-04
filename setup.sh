@@ -9,6 +9,10 @@ command -v ffmpeg >/dev/null || { echo "ffmpeg is required (macOS: brew install 
 
 # 1) Official Remotion skills (no licence file, so not shipped here) at the pinned versions
 DISABLE_TELEMETRY=1 npx -y skills experimental_install
+# the installer writes to .agents/skills – Claude Code reads .claude/skills
+for d in .agents/skills/remotion-*; do
+  [ -d "$d" ] && rm -rf ".claude/skills/$(basename "$d")" && cp -R "$d" .claude/skills/
+done
 
 # 2) Studio dependencies (Remotion and friends, pinned)
 cd studio

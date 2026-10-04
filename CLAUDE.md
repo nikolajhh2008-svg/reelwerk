@@ -45,10 +45,10 @@ The `ig-*` skills look for `~/.claude/instagram/*.md`. In this kit those files l
 
 - **No number without a source.** Many hook skills quote percentages without evidence; never put those into a video.
 - **Only the brand files are given** (colours, fonts, character, logo). Never take components, animations, screenshots or recordings from the project; show features as illustrations built from scratch, never as a fake real screen. No realistic AI people.
-- **Faceless and voiceless by default:** the "spoken hook" is the character's first speech bubble or the first line of text.
+- **Faceless and voiceless by default – so on-screen text tells the story:** a big hook line in the first second, one caption per beat, speech bubbles, the punchline as text (04-script.md, 4.0). Never a near-silent picture story.
 - **Sound: a music bed generated for the video, effects synthesised in code** (04-script.md, 4.6). Picture is cut to the measured beats; no cheap click sprinkles, no boosted isolated clicks. Music comes from the pool in `music/` first; otherwise ACE-Step, free and local (`sh studio/setup-music.sh`); Google Lyria is optional (`--engine lyria`, needs `GEMINI_API_KEY`). If no engine is installed, ask the human – never invent a workaround.
 - **Every video is built from scratch** (`blueprint/04-script.md`): premise, two directions, four key frames, then its own `Video.tsx`. No template library, no recycled scenes. Given are only the brand files. The build brief stays short; the ban list `work/taste/banned.md` is part of it.
-- **Never a text-only slideshow.** Every video has at least two layers beyond text.
+- **Never a text-only slideshow** – text tells the story, but the character acts and the scene moves underneath it.
 - **Never post, upload or send anything.** Never open Remotion Studio in an unattended run; render with `node studio/render.mjs work/videos/<id>`.
 - `ig-reel`'s `hookscore.py` and `beats.py` are calibrated on English (word lists, no umlauts) – for other languages treat their scores as a weak signal only.
 - Craft rules: [`docs/craft.md`](docs/craft.md) – the critic checks every video against them (06-review.md); they are not pasted into the build brief.

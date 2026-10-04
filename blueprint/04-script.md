@@ -14,6 +14,10 @@ Every video plays **somewhere a viewer recognises, with someone doing something*
 
 **Every video is a story that starts somewhere.** Before anything else, write it as one plain sentence a 12-year-old understands: **who · where · wants what · what goes wrong · how it ends** – e.g. "Kritiko sits in class, wants to secretly eat his sandwich, the wrapper rustles louder with every bite, the whole class turns round." If that sentence needs a concept explained, or the first seconds do not show *where we are and who it is about*, the idea is not a story yet – go back to 02. (Human verdict on an abstract test video: "Es ist keine Story dahinter … du musst die Grundregel machen, dass es irgendwo anfängt.")
 
+**Text carries the story.** A faceless, voiceless short is told in on-screen text: a big **hook line** in the first second that states the situation or the joke's setup (e.g. "POV: …", "Ich, wenn …", "Niemand: … / Ich: …"), then **one short caption per beat** that says what is happening or what the character thinks, speech bubbles for the character, and the **punchline as text**. A viewer who only reads the text must get the story; the picture makes it funny. Silent scenes without text are the exception, not the rule. (Human verdict on a test video with almost no text: "Es gibt keinen Hook. Es soll schon was passieren. Es soll Text da sein.")
+
+**Big and busy from frame 0.** The first second shows a **large, readable event** – not a small detail in a wide shot (dozens of tiny figures turning their heads cannot be seen on a phone). The main subject fills at least a third of the frame. Something visibly happens at least every second; no standing still to "build atmosphere" at the start.
+
 ## 4.1 Premise, not topic
 
 Write one sentence: **"the character wants X – obstacle Y – it escalates Z – payoff."** Then the transformation in two words with an arrow (`empty → overflowing`, `chaos → one line`). A topic ("why sources matter") is not a premise. A video without a premise does not get built – send it back to 02.

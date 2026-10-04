@@ -26,6 +26,8 @@ Each round:
 4. Any new default look you spot goes onto `work/taste/banned.md`.
 
 Also ask, every time:
+- **Hook test at 360 px:** in the first second, is there a big readable hook line *and* a big visible event? Would a stranger stop scrolling?
+- **Text test:** reading only the on-screen text, does a stranger get the story and the punchline?
 - **Is there a visual idea?** Would the video still make its point with the text removed?
 - **Up and down?** Does the energy rise and fall along the storyboard's tension curve – picture *and* music? A flat stretch, a middle with nothing new, music on one level from start to end → fix it.
 - **Boring check:** same layout three beats in a row, text appearing the same way every time, a character standing still beside text.
